@@ -530,7 +530,104 @@
   }
 }
 
-/* Responsive styles for modals */
+/* Стилі для акордеону */
+.accordionContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+  padding: 0;
+}
+
+.accordionContent.open {
+  max-height: 2000px;
+  padding: 1rem 0;
+}
+
+.termDetails {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.termMainDefinition {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.termBullets {
+  margin-bottom: 1.5rem;
+}
+
+.termBullet {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.8rem;
+  gap: 0.5rem;
+}
+
+.bulletIcon {
+  color: #667eea;
+  font-size: 1rem;
+  margin-top: 0.1rem;
+  flex-shrink: 0;
+}
+
+.termBullet span:last-child {
+  color: #555;
+  line-height: 1.4;
+}
+
+.termSection {
+  margin-bottom: 1.5rem;
+}
+
+.termSectionTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.8rem;
+}
+
+.termSectionText {
+  color: #555;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+.termSectionList {
+  color: #555;
+  padding-left: 1.2rem;
+  line-height: 1.4;
+}
+
+.termSectionList li {
+  margin-bottom: 0.5rem;
+}
+
+.termRemember {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+.termRememberTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.termRememberText {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin: 0;
+}
 @media (max-width: 768px) {
   .page {
     padding: 0.75rem;
@@ -602,7 +699,43 @@
     right: 10px;
   }
   
-  .modalCaption {
+  .termDetails {
+    padding: 1rem;
+    margin-top: 0.8rem;
+  }
+  
+  .termMainDefinition {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .termBullets {
+    margin-bottom: 1rem;
+  }
+  
+  .termBullet {
+    margin-bottom: 0.6rem;
+  }
+  
+  .termSection {
+    margin-bottom: 1rem;
+  }
+  
+  .termSectionTitle {
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .termRemember {
+    padding: 0.8rem;
+    margin-top: 0.8rem;
+  }
+  
+  .termRememberTitle {
+    font-size: 0.9rem;
+  }
+  
+  .termRememberText {
     font-size: 0.85rem;
   }
 }
@@ -669,7 +802,7 @@
   
   .modalContent {
     padding: 0.6rem;
-    max-height: calc(98vh - 80px);
+    max-height: calc(98vh - 140px);
   }
   
   .closeButton {
@@ -678,7 +811,43 @@
     font-size: 12px;
   }
   
-  .modalCaption {
-    font-size: 0.7rem;
+  .termDetails {
+    padding: 0.8rem;
+    margin-top: 0.6rem;
+  }
+  
+  .termMainDefinition {
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .termBullets {
+    margin-bottom: 0.8rem;
+  }
+  
+  .termBullet {
+    margin-bottom: 0.5rem;
+  }
+  
+  .termSection {
+    margin-bottom: 0.8rem;
+  }
+  
+  .termSectionTitle {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .termRemember {
+    padding: 0.6rem;
+    margin-top: 0.6rem;
+  }
+  
+  .termRememberTitle {
+    font-size: 0.85rem;
+  }
+  
+  .termRememberText {
+    font-size: 0.8rem;
   }
 }

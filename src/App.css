@@ -1,7 +1,20 @@
+/* Глобальні стилі для мобільних пристроїв */
+body {
+  margin: 0;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+html {
+  overscroll-behavior: none;
+}
+
 /* Основний контейнер додатку */
 .app {
   min-height: 100vh;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  overscroll-behavior: none;
+  position: relative;
 }
 
 /* Навігація */
@@ -61,6 +74,7 @@
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  overscroll-behavior: none;
 }
 
 /* Бургер меню */
@@ -171,7 +185,7 @@
 /* Адаптивність */
 @media (max-width: 768px) {
   .navigation {
-    padding: 0.4rem 0.6rem;
+    padding: 1rem 1rem;
   }
   
   .nav-brand h2 {
@@ -216,7 +230,7 @@
 /* Для iPhone 15 та менших екранів */
 @media (max-width: 480px) {
   .navigation {
-    padding: 0.3rem 0.5rem;
+    padding: 1rem 1rem;
   }
   
   .nav-brand h2 {
@@ -230,7 +244,7 @@
   
   .mobile-menu-content {
     width: 200px;
-    padding: 45px 10px 10px;
+    padding: 66px 10px 10px;
   }
   
   .mobile-nav-link {
@@ -240,6 +254,7 @@
   
   .main-content {
     padding: 0.4rem;
+    overscroll-behavior: none;
   }
   
   .global-image-modal {
@@ -267,6 +282,17 @@
   
   .global-modal-caption {
     font-size: 0.75rem;
+  }
+  
+  /* Додаткові стилі для покращення прокрутки на iOS */
+  .app {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: none;
+  }
+  
+  body {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: none;
   }
 }
 

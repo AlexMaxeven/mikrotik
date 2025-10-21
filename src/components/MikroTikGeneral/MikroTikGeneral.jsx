@@ -1,36 +1,17 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState } from 'react'
 import styles from './MikroTikGeneral.module.css'
 
 function MikroTikGeneral() {
-  const [openModal, setOpenModal] = useState(null)
   const [showCompanyInfo, setShowCompanyInfo] = useState(false)
-  const modalRef = useRef(null)
-
-  const openTermModal = (term) => {
-    setOpenModal(term)
-  }
-
-  const closeModal = () => {
-    setOpenModal(null)
-  }
+  const [expandedTerm, setExpandedTerm] = useState(null)
 
   const toggleCompanyInfo = () => {
     setShowCompanyInfo(!showCompanyInfo)
   }
 
-  // Автоматичне прокручування до центру модального вікна при відкритті
-  useEffect(() => {
-    if (openModal && modalRef.current) {
-      // Невелика затримка для забезпечення рендерингу модального вікна
-      setTimeout(() => {
-        modalRef.current.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-          inline: 'center'
-        })
-      }, 100)
-    }
-  }, [openModal])
+  const toggleTerm = (term) => {
+    setExpandedTerm(expandedTerm === term ? null : term)
+  }
 
   return (
     <div className={styles.page}>
@@ -86,196 +67,12 @@ function MikroTikGeneral() {
             </div>
             <button 
               className={styles.detailsButton}
-              onClick={() => openTermModal('wan')}
+              onClick={() => toggleTerm('wan')}
             >
-              📖 Детальніше
+              📖 {expandedTerm === 'wan' ? 'Згорнути' : 'Детальніше'}
             </button>
-          </div>
-
-          <div className={styles.terminologyCard}>
-            <div className={styles.termHeader}>
-              <span className={styles.termIcon}>🏠</span>
-              <h3 className={styles.termName}>LAN (Local Area Network)</h3>
-            </div>
-            <p className={styles.termDefinition}>
-              Внутрішня локальна мережа (твої ПК, ноут, телефони).
-            </p>
-            <div className={styles.mikrotikNote}>
-              <span className={styles.noteIcon}>👉</span>
-              <span>У MikroTik це порти ether2–5, об'єднані в bridge1.</span>
-            </div>
-            <button 
-              className={styles.detailsButton}
-              onClick={() => openTermModal('lan')}
-            >
-              📖 Детальніше
-            </button>
-          </div>
-
-          <div className={styles.terminologyCard}>
-            <div className={styles.termHeader}>
-              <span className={styles.termIcon}>🔄</span>
-              <h3 className={styles.termName}>NAT (Network Address Translation)</h3>
-            </div>
-            <p className={styles.termDefinition}>
-              Підміна локальних IP на один зовнішній.
-            </p>
-            <div className={styles.mikrotikNote}>
-              <span className={styles.noteIcon}>👉</span>
-              <span>Дозволяє багатьом пристроям у LAN виходити в Інтернет через один IP на WAN.</span>
-            </div>
-            <button 
-              className={styles.detailsButton}
-              onClick={() => openTermModal('nat')}
-            >
-              📖 Детальніше
-            </button>
-          </div>
-
-          <div className={styles.terminologyCard}>
-            <div className={styles.termHeader}>
-              <span className={styles.termIcon}>📡</span>
-              <h3 className={styles.termName}>DHCP (Dynamic Host Configuration Protocol)</h3>
-            </div>
-            <p className={styles.termDefinition}>
-              Автоматична видача IP, шлюзу і DNS клієнтам.
-            </p>
-            <div className={styles.mikrotikNote}>
-              <span className={styles.noteIcon}>👉</span>
-              <span>Ноут/телефон підключився → одразу отримав адресу від MikroTik.</span>
-            </div>
-            <button 
-              className={styles.detailsButton}
-              onClick={() => openTermModal('dhcp')}
-            >
-              📖 Детальніше
-            </button>
-          </div>
-
-          <div className={styles.terminologyCard}>
-            <div className={styles.termHeader}>
-              <span className={styles.termIcon}>📖</span>
-              <h3 className={styles.termName}>DNS (Domain Name System)</h3>
-            </div>
-            <p className={styles.termDefinition}>
-              "Телефонна книга Інтернету".
-            </p>
-            <div className={styles.mikrotikNote}>
-              <span className={styles.noteIcon}>👉</span>
-              <span>Перетворює ім'я сайту (google.com) на IP-адресу (142.250.186.206).</span>
-            </div>
-            <button 
-              className={styles.detailsButton}
-              onClick={() => openTermModal('dns')}
-            >
-              📖 Детальніше
-            </button>
-          </div>
-
-          <div className={styles.terminologyCard}>
-            <div className={styles.termHeader}>
-              <span className={styles.termIcon}>🆔</span>
-              <h3 className={styles.termName}>MAC Address</h3>
-            </div>
-            <p className={styles.termDefinition}>
-              Унікальний "номер" кожної мережевої карти.
-            </p>
-            <div className={styles.mikrotikNote}>
-              <span className={styles.noteIcon}>👉</span>
-              <span>У MikroTik його видно в колонці Interfaces.</span>
-            </div>
-            <button 
-              className={styles.detailsButton}
-              onClick={() => openTermModal('mac')}
-            >
-              📖 Детальніше
-            </button>
-          </div>
-
-          <div className={styles.terminologyCard}>
-            <div className={styles.termHeader}>
-              <span className={styles.termIcon}>🌉</span>
-              <h3 className={styles.termName}>Bridge</h3>
-            </div>
-            <p className={styles.termDefinition}>
-              Об'єднання кількох портів в одну мережу.
-            </p>
-            <div className={styles.mikrotikNote}>
-              <span className={styles.noteIcon}>👉</span>
-              <span>Без bridge кожен порт був би окремою мережею.</span>
-            </div>
-            <button 
-              className={styles.detailsButton}
-              onClick={() => openTermModal('bridge')}
-            >
-              📖 Детальніше
-            </button>
-          </div>
-
-          <div className={styles.terminologyCard}>
-            <div className={styles.termHeader}>
-              <span className={styles.termIcon}>📦</span>
-              <h3 className={styles.termName}>MTU</h3>
-            </div>
-            <p className={styles.termDefinition}>
-              Максимальний розмір пакета даних через інтерфейс.
-            </p>
-            <div className={styles.mikrotikNote}>
-              <span className={styles.noteIcon}>👉</span>
-              <span>Стандартне значення: 1500 для Ethernet.</span>
-            </div>
-            <button 
-              className={styles.detailsButton}
-              onClick={() => openTermModal('mtu')}
-            >
-              📖 Детальніше
-            </button>
-          </div>
-
-          <div className={styles.terminologyCard}>
-            <div className={styles.termHeader}>
-              <span className={styles.termIcon}>🏠</span>
-              <h3 className={styles.termName}>IP Address</h3>
-            </div>
-            <p className={styles.termDefinition}>
-              Логічна адреса пристрою в мережі.
-            </p>
-            <div className={styles.mikrotikNote}>
-              <span className={styles.noteIcon}>👉</span>
-              <span>Роутер зазвичай має дві: LAN (всередині) та WAN (зовнішня).</span>
-            </div>
-            <button 
-              className={styles.detailsButton}
-              onClick={() => openTermModal('ip')}
-            >
-              📖 Детальніше
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Модальні вікна для кожного терміну */}
-      {openModal && (
-        <div className={styles.modalOverlay} onClick={closeModal}>
-          <div className={styles.modal} onClick={(e) => e.stopPropagation()} ref={modalRef}>
-            <div className={styles.modalHeader}>
-              <h3 className={styles.modalTitle}>
-                {openModal === 'wan' && '🌐 WAN (Wide Area Network)'}
-                {openModal === 'lan' && '🏠 LAN (Local Area Network)'}
-                {openModal === 'nat' && '🔄 NAT (Network Address Translation)'}
-                {openModal === 'dhcp' && '📡 DHCP (Dynamic Host Configuration Protocol)'}
-                {openModal === 'dns' && '📖 DNS (Domain Name System)'}
-                {openModal === 'mac' && '🆔 MAC Address'}
-                {openModal === 'bridge' && '🌉 Bridge'}
-                {openModal === 'mtu' && '📦 MTU'}
-                {openModal === 'ip' && '🏠 IP Address'}
-              </h3>
-              <button className={styles.closeButton} onClick={closeModal}>
-                ✕
-              </button>
-            </div>
-            <div className={styles.modalContent}>
-              {openModal === 'wan' && (
+            {expandedTerm === 'wan' && (
+              <div className={`${styles.accordionContent} ${styles.open}`}>
                 <div className={styles.termDetails}>
                   <p className={styles.termMainDefinition}>
                     WAN (Wide Area Network) — це глобальна мережа, зазвичай Інтернет.
@@ -321,9 +118,30 @@ function MikroTikGeneral() {
                     </p>
                   </div>
                 </div>
-              )}
+              </div>
+            )}
+          </div>
 
-              {openModal === 'lan' && (
+          <div className={styles.terminologyCard}>
+            <div className={styles.termHeader}>
+              <span className={styles.termIcon}>🏠</span>
+              <h3 className={styles.termName}>LAN (Local Area Network)</h3>
+            </div>
+            <p className={styles.termDefinition}>
+              Внутрішня локальна мережа (твої ПК, ноут, телефони).
+            </p>
+            <div className={styles.mikrotikNote}>
+              <span className={styles.noteIcon}>👉</span>
+              <span>У MikroTik це порти ether2–5, об'єднані в bridge1.</span>
+            </div>
+            <button 
+              className={styles.detailsButton}
+              onClick={() => toggleTerm('lan')}
+            >
+              📖 {expandedTerm === 'lan' ? 'Згорнути' : 'Детальніше'}
+            </button>
+            {expandedTerm === 'lan' && (
+              <div className={`${styles.accordionContent} ${styles.open}`}>
                 <div className={styles.termDetails}>
                   <p className={styles.termMainDefinition}>
                     LAN (Local Area Network) — локальна мережа твоїх пристроїв.
@@ -358,9 +176,30 @@ function MikroTikGeneral() {
                     </p>
                   </div>
                 </div>
-              )}
+              </div>
+            )}
+          </div>
 
-              {openModal === 'nat' && (
+          <div className={styles.terminologyCard}>
+            <div className={styles.termHeader}>
+              <span className={styles.termIcon}>🔄</span>
+              <h3 className={styles.termName}>NAT (Network Address Translation)</h3>
+            </div>
+            <p className={styles.termDefinition}>
+              Підміна локальних IP на один зовнішній.
+            </p>
+            <div className={styles.mikrotikNote}>
+              <span className={styles.noteIcon}>👉</span>
+              <span>Дозволяє багатьом пристроям у LAN виходити в Інтернет через один IP на WAN.</span>
+            </div>
+            <button 
+              className={styles.detailsButton}
+              onClick={() => toggleTerm('nat')}
+            >
+              📖 {expandedTerm === 'nat' ? 'Згорнути' : 'Детальніше'}
+            </button>
+            {expandedTerm === 'nat' && (
+              <div className={`${styles.accordionContent} ${styles.open}`}>
                 <div className={styles.termDetails}>
                   <p className={styles.termMainDefinition}>
                     NAT (Network Address Translation) — технологія підміни адрес при виході в Інтернет.
@@ -399,9 +238,30 @@ function MikroTikGeneral() {
                     </p>
                   </div>
                 </div>
-              )}
+              </div>
+            )}
+          </div>
 
-              {openModal === 'dhcp' && (
+          <div className={styles.terminologyCard}>
+            <div className={styles.termHeader}>
+              <span className={styles.termIcon}>📡</span>
+              <h3 className={styles.termName}>DHCP (Dynamic Host Configuration Protocol)</h3>
+            </div>
+            <p className={styles.termDefinition}>
+              Автоматична видача IP, шлюзу і DNS клієнтам.
+            </p>
+            <div className={styles.mikrotikNote}>
+              <span className={styles.noteIcon}>👉</span>
+              <span>Ноут/телефон підключився → одразу отримав адресу від MikroTik.</span>
+            </div>
+            <button 
+              className={styles.detailsButton}
+              onClick={() => toggleTerm('dhcp')}
+            >
+              📖 {expandedTerm === 'dhcp' ? 'Згорнути' : 'Детальніше'}
+            </button>
+            {expandedTerm === 'dhcp' && (
+              <div className={`${styles.accordionContent} ${styles.open}`}>
                 <div className={styles.termDetails}>
                   <p className={styles.termMainDefinition}>
                     DHCP (Dynamic Host Configuration Protocol) — автоматична видача налаштувань мережі пристроям.
@@ -442,9 +302,30 @@ function MikroTikGeneral() {
                     </p>
                   </div>
                 </div>
-              )}
+              </div>
+            )}
+          </div>
 
-              {openModal === 'dns' && (
+          <div className={styles.terminologyCard}>
+            <div className={styles.termHeader}>
+              <span className={styles.termIcon}>📖</span>
+              <h3 className={styles.termName}>DNS (Domain Name System)</h3>
+            </div>
+            <p className={styles.termDefinition}>
+              "Телефонна книга Інтернету".
+            </p>
+            <div className={styles.mikrotikNote}>
+              <span className={styles.noteIcon}>👉</span>
+              <span>Перетворює ім'я сайту (google.com) на IP-адресу (142.250.186.206).</span>
+            </div>
+            <button 
+              className={styles.detailsButton}
+              onClick={() => toggleTerm('dns')}
+            >
+              📖 {expandedTerm === 'dns' ? 'Згорнути' : 'Детальніше'}
+            </button>
+            {expandedTerm === 'dns' && (
+              <div className={`${styles.accordionContent} ${styles.open}`}>
                 <div className={styles.termDetails}>
                   <p className={styles.termMainDefinition}>
                     DNS (Domain Name System) — телефонна книга Інтернету.
@@ -476,13 +357,6 @@ function MikroTikGeneral() {
                     </p>
                   </div>
 
-                  <div className={styles.termSection}>
-                    <h4 className={styles.termSectionTitle}>✨ Для чого потрібен DNS:</h4>
-                    <p className={styles.termSectionText}>
-                      DNS потрібен, щоб заходити на сайти за іменами, а не по IP.
-                    </p>
-                  </div>
-
                   <div className={styles.termRemember}>
                     <h4 className={styles.termRememberTitle}>📌 Запам'ятай просто:</h4>
                     <p className={styles.termRememberText}>
@@ -490,9 +364,30 @@ function MikroTikGeneral() {
                     </p>
                   </div>
                 </div>
-              )}
+              </div>
+            )}
+          </div>
 
-              {openModal === 'mac' && (
+          <div className={styles.terminologyCard}>
+            <div className={styles.termHeader}>
+              <span className={styles.termIcon}>🆔</span>
+              <h3 className={styles.termName}>MAC Address</h3>
+            </div>
+            <p className={styles.termDefinition}>
+              Унікальний "номер" кожної мережевої карти.
+            </p>
+            <div className={styles.mikrotikNote}>
+              <span className={styles.noteIcon}>👉</span>
+              <span>У MikroTik його видно в колонці Interfaces.</span>
+            </div>
+            <button 
+              className={styles.detailsButton}
+              onClick={() => toggleTerm('mac')}
+            >
+              📖 {expandedTerm === 'mac' ? 'Згорнути' : 'Детальніше'}
+            </button>
+            {expandedTerm === 'mac' && (
+              <div className={`${styles.accordionContent} ${styles.open}`}>
                 <div className={styles.termDetails}>
                   <p className={styles.termMainDefinition}>
                     MAC (Media Access Control) — це апаратна адреса, «паспорт» кожного мережевого інтерфейсу.
@@ -524,9 +419,30 @@ function MikroTikGeneral() {
                     </p>
                   </div>
                 </div>
-              )}
+              </div>
+            )}
+          </div>
 
-              {openModal === 'bridge' && (
+          <div className={styles.terminologyCard}>
+            <div className={styles.termHeader}>
+              <span className={styles.termIcon}>🌉</span>
+              <h3 className={styles.termName}>Bridge</h3>
+            </div>
+            <p className={styles.termDefinition}>
+              Об'єднання кількох портів в одну мережу.
+            </p>
+            <div className={styles.mikrotikNote}>
+              <span className={styles.noteIcon}>👉</span>
+              <span>Без bridge кожен порт був би окремою мережею.</span>
+            </div>
+            <button 
+              className={styles.detailsButton}
+              onClick={() => toggleTerm('bridge')}
+            >
+              📖 {expandedTerm === 'bridge' ? 'Згорнути' : 'Детальніше'}
+            </button>
+            {expandedTerm === 'bridge' && (
+              <div className={`${styles.accordionContent} ${styles.open}`}>
                 <div className={styles.termDetails}>
                   <p className={styles.termMainDefinition}>
                     Bridge — це «міст», який з'єднує кілька інтерфейсів так, щоб вони працювали, як одна мережа.
@@ -554,9 +470,30 @@ function MikroTikGeneral() {
                     </p>
                   </div>
                 </div>
-              )}
+              </div>
+            )}
+          </div>
 
-              {openModal === 'mtu' && (
+          <div className={styles.terminologyCard}>
+            <div className={styles.termHeader}>
+              <span className={styles.termIcon}>📦</span>
+              <h3 className={styles.termName}>MTU</h3>
+            </div>
+            <p className={styles.termDefinition}>
+              Максимальний розмір пакета даних через інтерфейс.
+            </p>
+            <div className={styles.mikrotikNote}>
+              <span className={styles.noteIcon}>👉</span>
+              <span>Стандартне значення: 1500 для Ethernet.</span>
+            </div>
+            <button 
+              className={styles.detailsButton}
+              onClick={() => toggleTerm('mtu')}
+            >
+              📖 {expandedTerm === 'mtu' ? 'Згорнути' : 'Детальніше'}
+            </button>
+            {expandedTerm === 'mtu' && (
+              <div className={`${styles.accordionContent} ${styles.open}`}>
                 <div className={styles.termDetails}>
                   <p className={styles.termMainDefinition}>
                     MTU (Maximum Transmission Unit) визначає, скільки байт може «проскочити» за один раз.
@@ -584,9 +521,30 @@ function MikroTikGeneral() {
                     </p>
                   </div>
                 </div>
-              )}
+              </div>
+            )}
+          </div>
 
-              {openModal === 'ip' && (
+          <div className={styles.terminologyCard}>
+            <div className={styles.termHeader}>
+              <span className={styles.termIcon}>🏠</span>
+              <h3 className={styles.termName}>IP Address</h3>
+            </div>
+            <p className={styles.termDefinition}>
+              Логічна адреса пристрою в мережі.
+            </p>
+            <div className={styles.mikrotikNote}>
+              <span className={styles.noteIcon}>👉</span>
+              <span>Роутер зазвичай має дві: LAN (всередині) та WAN (зовнішня).</span>
+            </div>
+            <button 
+              className={styles.detailsButton}
+              onClick={() => toggleTerm('ip')}
+            >
+              📖 {expandedTerm === 'ip' ? 'Згорнути' : 'Детальніше'}
+            </button>
+            {expandedTerm === 'ip' && (
+              <div className={`${styles.accordionContent} ${styles.open}`}>
                 <div className={styles.termDetails}>
                   <p className={styles.termMainDefinition}>
                     IP бувають приватні (LAN: 192.168.x.x, 10.x.x.x) і публічні (видимі в інтернеті).
@@ -638,11 +596,11 @@ function MikroTikGeneral() {
                     </p>
                   </div>
                 </div>
-              )}
-            </div>
+              </div>
+            )}
           </div>
         </div>
-      )}
+      </div>
     </div>
   )
 }

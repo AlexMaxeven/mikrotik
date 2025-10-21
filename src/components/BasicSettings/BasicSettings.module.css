@@ -31,8 +31,8 @@
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
-  position: sticky;
-  top: 80px;
+  /* position: sticky;
+  top: 80px; */
   z-index: 100;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
@@ -532,6 +532,11 @@
   .page {
     padding: 0.4rem;
     border-radius: 10px;
+  }
+
+  .settingsGrid {
+
+    grid-template-columns: none;
   }
 
   .scrollButtonContainer {
