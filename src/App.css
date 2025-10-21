@@ -17,447 +17,6 @@ html {
   position: relative;
 }
 
-/* Навігація */
-.navigation {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.nav-brand h2 {
-  margin: 0;
-  color: #333;
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-.nav-links {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.nav-link {
-  background: transparent;
-  border: 2px solid #667eea;
-  color: #667eea;
-  padding: 0.5rem 1rem;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: 500;
-  font-size: 0.9rem;
-}
-
-.nav-link:hover {
-  background: #667eea;
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-}
-
-.nav-link.active {
-  background: #667eea;
-  color: white;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-}
-
-/* Основний контент */
-.main-content {
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  overscroll-behavior: none;
-}
-
-/* Бургер меню */
-.burger-menu {
-  display: none;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 30px;
-  height: 30px;
-  background: transparent;
-  border: none !important;
-  outline: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 1001;
-}
-
-.burger-menu:focus {
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-}
-
-.burger-line {
-  width: 100%;
-  height: 3px;
-  background-color: #667eea;
-  transition: all 0.3s ease;
-  transform-origin: center;
-}
-
-.burger-line.active:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
-}
-
-.burger-line.active:nth-child(2) {
-  opacity: 0;
-}
-
-.burger-line.active:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
-}
-
-/* Мобільне меню */
-.mobile-menu {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-}
-
-.mobile-menu.open {
-  opacity: 1;
-  visibility: visible;
-}
-
-.mobile-menu-content {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 280px;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(10px);
-  padding: 80px 20px 20px;
-  transform: translateX(100%);
-  transition: transform 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-/* Стилі для скроллбару в мобільному меню */
-.mobile-menu-content::-webkit-scrollbar {
-  width: 6px;
-}
-
-.mobile-menu-content::-webkit-scrollbar-track {
-  background: rgba(102, 126, 234, 0.1);
-  border-radius: 3px;
-}
-
-.mobile-menu-content::-webkit-scrollbar-thumb {
-  background: rgba(102, 126, 234, 0.3);
-  border-radius: 3px;
-}
-
-.mobile-menu-content::-webkit-scrollbar-thumb:hover {
-  background: rgba(102, 126, 234, 0.5);
-}
-
-.mobile-menu.open .mobile-menu-content {
-  transform: translateX(0);
-}
-
-.mobile-nav-link {
-  background: transparent;
-  border: 2px solid #667eea;
-  color: #667eea;
-  padding: 1rem;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: 500;
-  font-size: 1rem;
-  text-align: left;
-}
-
-.mobile-nav-link:hover {
-  background: #667eea;
-  color: white;
-  transform: translateX(5px);
-}
-
-.mobile-nav-link.active {
-  background: #667eea;
-  color: white;
-}
-
-/* Адаптивність */
-@media (max-width: 768px) {
-  .navigation {
-    padding: 1rem 1rem;
-  }
-  
-  .nav-brand h2 {
-    font-size: 1rem;
-  }
-  
-  .nav-links {
-    display: none;
-  }
-  
-  .burger-menu {
-    display: flex;
-    width: 22px;
-    height: 22px;
-  }
-  
-  .burger-line {
-    height: 2px;
-  }
-  
-  .mobile-menu {
-    display: block;
-  }
-  
-  .mobile-menu-content {
-    width: 240px;
-    padding: 60px 16px 16px;
-    gap: 0.8rem;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-  
-  .mobile-nav-link {
-    padding: 0.8rem;
-    font-size: 0.85rem;
-    border-radius: 8px;
-  }
-  
-  .main-content {
-    padding: 0.5rem;
-  }
-}
-
-/* Кнопка Scroll to Top */
-.scroll-to-top {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 55px;
-  height: 55px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  font-size: 24px;
-  font-weight: 900;
-  cursor: pointer;
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  box-shadow: 
-    0 8px 25px rgba(102, 126, 234, 0.4),
-    0 0 15px rgba(102, 126, 234, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: scale(0.8);
-}
-
-.scroll-to-top.visible {
-  opacity: 1;
-  visibility: visible;
-  transform: scale(1);
-}
-
-.scroll-to-top:hover {
-  transform: scale(1.1) translateY(-2px);
-  box-shadow: 
-    0 12px 35px rgba(102, 126, 234, 0.5),
-    0 0 20px rgba(102, 126, 234, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-}
-
-.scroll-to-top:active {
-  transform: scale(0.95) translateY(0);
-}
-
-/* Мобільна адаптація для кнопки */
-@media (max-width: 768px) {
-  .scroll-to-top {
-    bottom: 25px;
-    right: 25px;
-    width: 50px;
-    height: 50px;
-    font-size: 22px;
-  }
-}
-
-@media (max-width: 480px) {
-  .scroll-to-top {
-    bottom: 20px;
-    right: 20px;
-    width: 45px;
-    height: 45px;
-    font-size: 20px;
-  }
-}
-
-/* Для iPhone 15 та менших екранів */
-@media (max-width: 480px) {
-  .navigation {
-    padding: 1rem 1rem;
-  }
-  
-  .nav-brand h2 {
-    font-size: 0.9rem;
-  }
-  
-  .burger-menu {
-    width: 20px;
-    height: 20px;
-  }
-  
-  .mobile-menu-content {
-    width: 220px;
-    padding: 70px 14px 14px;
-    gap: 0.6rem;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-  
-  .mobile-nav-link {
-    padding: 0.7rem;
-    font-size: 0.8rem;
-    border-radius: 8px;
-  }
-  
-  .main-content {
-    padding: 0.4rem;
-    overscroll-behavior: none;
-  }
-  
-  .global-image-modal {
-    padding: 5px;
-  }
-  
-  .global-modal-content {
-    padding: 8px;
-    max-width: 99%;
-    max-height: 98%;
-    border-radius: 8px;
-  }
-  
-  .global-close-button {
-    width: 22px;
-    height: 22px;
-    font-size: 14px;
-    top: 6px;
-    right: 8px;
-  }
-  
-  .global-modal-image {
-    margin-bottom: 8px;
-  }
-  
-  .global-modal-caption {
-    font-size: 0.75rem;
-  }
-  
-  /* Додаткові стилі для покращення прокрутки на iOS */
-  .app {
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-y: none;
-  }
-  
-  body {
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-y: none;
-  }
-}
-
-/* Кнопка Scroll to Top */
-.scroll-to-top {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 55px;
-  height: 55px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  font-size: 24px;
-  font-weight: 900;
-  cursor: pointer;
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  box-shadow: 
-    0 8px 25px rgba(102, 126, 234, 0.4),
-    0 0 15px rgba(102, 126, 234, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: scale(0.8);
-}
-
-.scroll-to-top.visible {
-  opacity: 1;
-  visibility: visible;
-  transform: scale(1);
-}
-
-.scroll-to-top:hover {
-  transform: scale(1.1) translateY(-2px);
-  box-shadow: 
-    0 12px 35px rgba(102, 126, 234, 0.5),
-    0 0 20px rgba(102, 126, 234, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-}
-
-.scroll-to-top:active {
-  transform: scale(0.95) translateY(0);
-}
-
-/* Мобільна адаптація для кнопки */
-@media (max-width: 768px) {
-  .scroll-to-top {
-    bottom: 25px;
-    right: 25px;
-    width: 50px;
-    height: 50px;
-    font-size: 22px;
-  }
-}
-
-@media (max-width: 480px) {
-  .scroll-to-top {
-    bottom: 20px;
-    right: 20px;
-    width: 45px;
-    height: 45px;
-    font-size: 20px;
-  }
-}
-
 /* Глобальне модальне вікно для зображень */
 .global-image-modal {
   position: fixed;
@@ -465,153 +24,119 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.9);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10000;
+  z-index: 2000;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 .global-modal-content {
-  background: white;
-  border-radius: 15px;
-  padding: 20px;
+  position: relative;
   max-width: 90%;
   max-height: 90%;
-  position: relative;
-  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .global-close-button {
   position: absolute;
-  top: 10px;
-  right: 15px;
-  background: #dc3545;
+  top: -40px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.2);
   color: white;
   border: none;
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  font-size: 18px;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  z-index: 2001;
 }
 
 .global-close-button:hover {
-  background: #c82333;
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
 }
 
 .global-modal-image {
   max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 15px;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .global-modal-caption {
+  color: white;
   text-align: center;
-  color: #6c757d;
-  font-style: italic;
-  margin: 0;
+  margin-top: 15px;
+  font-size: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px 20px;
+  border-radius: 20px;
+  max-width: 100%;
+  word-wrap: break-word;
 }
 
-/* Адаптивність для глобального модального вікна */
+/* Медіа-запити для модального вікна */
 @media (max-width: 768px) {
   .global-image-modal {
     padding: 10px;
   }
   
   .global-modal-content {
-    padding: 10px;
-    max-width: 98%;
+    max-width: 95%;
     max-height: 95%;
-    border-radius: 10px;
   }
   
   .global-close-button {
-    width: 25px;
-    height: 25px;
-    font-size: 16px;
-    top: 8px;
-    right: 10px;
+    top: -30px;
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
   }
   
   .global-modal-image {
-    margin-bottom: 10px;
+    max-height: 70vh;
   }
   
   .global-modal-caption {
-    font-size: 0.85rem;
-  }
-}
-
-/* Кнопка Scroll to Top */
-.scroll-to-top {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 55px;
-  height: 55px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  font-size: 24px;
-  font-weight: 900;
-  cursor: pointer;
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  box-shadow: 
-    0 8px 25px rgba(102, 126, 234, 0.4),
-    0 0 15px rgba(102, 126, 234, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: scale(0.8);
-}
-
-.scroll-to-top.visible {
-  opacity: 1;
-  visibility: visible;
-  transform: scale(1);
-}
-
-.scroll-to-top:hover {
-  transform: scale(1.1) translateY(-2px);
-  box-shadow: 
-    0 12px 35px rgba(102, 126, 234, 0.5),
-    0 0 20px rgba(102, 126, 234, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-}
-
-.scroll-to-top:active {
-  transform: scale(0.95) translateY(0);
-}
-
-/* Мобільна адаптація для кнопки */
-@media (max-width: 768px) {
-  .scroll-to-top {
-    bottom: 25px;
-    right: 25px;
-    width: 50px;
-    height: 50px;
-    font-size: 22px;
+    font-size: 0.9rem;
+    padding: 8px 15px;
   }
 }
 
 @media (max-width: 480px) {
-  .scroll-to-top {
-    bottom: 20px;
-    right: 20px;
-    width: 45px;
-    height: 45px;
-    font-size: 20px;
+  .global-image-modal {
+    padding: 5px;
+  }
+  
+  .global-modal-content {
+    max-width: 98%;
+    max-height: 98%;
+  }
+  
+  .global-close-button {
+    top: -25px;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+  }
+  
+  .global-modal-image {
+    max-height: 65vh;
+  }
+  
+  .global-modal-caption {
+    font-size: 0.8rem;
+    padding: 6px 12px;
   }
 }

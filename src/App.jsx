@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import './App.css'
 
 // Імпорт компонентів з нової структури папок
@@ -9,16 +9,16 @@ import Backup from './components/Backup/Backup'
 import SecuritySettings from './components/SecuritySettings/SecuritySettings'
 import Scripts from './components/Scripts/Scripts'
 
+// Імпорт нових компонентів
+import Layout from './components/Layout/Layout'
+
 function App() {
   const [currentPage, setCurrentPage] = useState('general')
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [globalModalImage, setGlobalModalImage] = useState(null)
-  const [showScrollToTop, setShowScrollToTop] = useState(false)
   
   const handlePageChange = (page) => {
     setCurrentPage(page)
-    setIsMobileMenuOpen(false) // Закриваємо мобільне меню при виборі сторінки
-    window.scrollTo({ top: 0, behavior: 'smooth' }) // Плавний скрол до верху сторінки
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   const openGlobalImageModal = (imageSrc, imageAlt) => {
@@ -30,21 +30,6 @@ function App() {
     document.body.style.overflow = 'auto'
     setGlobalModalImage(null)
   }
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
-
-  // Відстеження скролу для показу кнопки scroll to top
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-      setShowScrollToTop(scrollTop > 100)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   const renderPage = () => {
     switch (currentPage) {
@@ -67,117 +52,9 @@ function App() {
 
   return (
     <div className="app">
-      <nav className="navigation">
-        <div className="nav-brand">
-          <h2>🖥️ MikroTik Довідник</h2>
-        </div>
-        
-        {/* Бургер кнопка для мобільних пристроїв */}
-        <button 
-          className="burger-menu"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle mobile menu"
-        >
-          <span className={`burger-line ${isMobileMenuOpen ? 'active' : ''}`}></span>
-          <span className={`burger-line ${isMobileMenuOpen ? 'active' : ''}`}></span>
-          <span className={`burger-line ${isMobileMenuOpen ? 'active' : ''}`}></span>
-        </button>
-        
-        <div className="nav-links">
-          <button 
-            className={`nav-link ${currentPage === 'general' ? 'active' : ''}`}
-            onClick={() => handlePageChange('general')}
-          >
-            📋 Загальні положення
-          </button>
-          <button 
-            className={`nav-link ${currentPage === 'basic' ? 'active' : ''}`}
-            onClick={() => handlePageChange('basic')}
-          >
-            ⚙️ Базові налаштування
-          </button>
-          
-          <button 
-            className={`nav-link ${currentPage === 'backup' ? 'active' : ''}`}
-            onClick={() => handlePageChange('backup')}
-          >
-            🔌 Резервне підключення
-          </button>
-          
-          <button 
-            className={`nav-link ${currentPage === 'security' ? 'active' : ''}`}
-            onClick={() => handlePageChange('security')}
-          >
-            🔐 Налаштування захисту
-          </button>
-          
-          <button 
-            className={`nav-link ${currentPage === 'scripts' ? 'active' : ''}`}
-            onClick={() => handlePageChange('scripts')}
-          >
-            📜 Скрипти
-          </button>
-          
-          <button 
-            className={`nav-link ${currentPage === 'additional1' ? 'active' : ''}`}
-            onClick={() => handlePageChange('additional1')}
-          >
-            🔒 Додаткові налаштування
-          </button>
-        </div>
-      </nav>
-      
-      {/* Мобільне меню */}
-      <div 
-        className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}
-        onClick={() => setIsMobileMenuOpen(false)}
-      >
-        <div 
-          className="mobile-menu-content"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <button 
-            className={`mobile-nav-link ${currentPage === 'general' ? 'active' : ''}`}
-            onClick={() => handlePageChange('general')}
-          >
-            📋 Загальні положення
-          </button>
-          <button 
-            className={`mobile-nav-link ${currentPage === 'basic' ? 'active' : ''}`}
-            onClick={() => handlePageChange('basic')}
-          >
-            ⚙️ Базові налаштування
-          </button>
-          <button 
-            className={`mobile-nav-link ${currentPage === 'backup' ? 'active' : ''}`}
-            onClick={() => handlePageChange('backup')}
-          >
-            🔌 Резервне підключення
-          </button>
-          <button 
-            className={`mobile-nav-link ${currentPage === 'security' ? 'active' : ''}`}
-            onClick={() => handlePageChange('security')}
-          >
-            🔐 Налаштування захисту
-          </button>
-          <button 
-            className={`mobile-nav-link ${currentPage === 'scripts' ? 'active' : ''}`}
-            onClick={() => handlePageChange('scripts')}
-          >
-            📜 Скрипти
-          </button>
-          <button 
-            className={`mobile-nav-link ${currentPage === 'additional1' ? 'active' : ''}`}
-            onClick={() => handlePageChange('additional1')}
-          >
-            🔒 Додаткові налаштування
-          </button>
-        </div>
-      </div>
-      
-      <main className="main-content">
+      <Layout currentPage={currentPage} onPageChange={handlePageChange}>
         {renderPage()}
-      </main>
+      </Layout>
 
       {/* Глобальне модальне вікно для зображень */}
       {globalModalImage && (
@@ -196,15 +73,6 @@ function App() {
           </div>
         </div>
       )}
-
-      {/* Кнопка Scroll to Top */}
-      <button 
-        className={`scroll-to-top ${showScrollToTop ? 'visible' : ''}`}
-        onClick={scrollToTop}
-        aria-label="Scroll to top"
-      >
-        ↑
-      </button>
     </div>
   )
 }
