@@ -532,14 +532,78 @@
 
 /* Responsive styles for modals */
 @media (max-width: 768px) {
-  .modal {
-    max-width: 95%;
-    max-height: 90vh;
-    margin: 1rem;
+  .page {
+    padding: 0.75rem;
+    border-radius: 15px;
   }
+  
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .companyInfoSection {
+    margin-bottom: 1.5rem;
+  }
+  
+  .toggleButton {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 0.75rem;
+  }
+  
+  .companyInfoContent {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+  
+  .companyInfoContent h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .companyInfoContent p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+  }
+  
+  .companyInfoContent ul {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    padding-left: 1.2rem;
+  }
+  
+  .companyInfoContent li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .modal {
+    max-width: 98%;
+    max-height: 95vh;
+    margin: 0.5rem;
+  }
+  
   .modalContent {
-    padding: 1.5rem;
-    max-height: calc(90vh - 120px);
+    padding: 1rem;
+    max-height: calc(95vh - 120px);
+  }
+  
+  .modalImage {
+    margin-bottom: 10px;
+  }
+  
+  .closeButton {
+    width: 25px;
+    height: 25px;
+    font-size: 16px;
+    top: 8px;
+    right: 10px;
+  }
+  
+  .modalCaption {
+    font-size: 0.85rem;
   }
 }
 

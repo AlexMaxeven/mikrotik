@@ -171,7 +171,11 @@
 /* Адаптивність */
 @media (max-width: 768px) {
   .navigation {
-    padding: 1rem;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .nav-brand h2 {
+    font-size: 1.2rem;
   }
   
   .nav-links {
@@ -180,14 +184,32 @@
   
   .burger-menu {
     display: flex;
+    width: 25px;
+    height: 25px;
+  }
+  
+  .burger-line {
+    height: 2px;
   }
   
   .mobile-menu {
     display: block;
   }
   
+  .mobile-menu-content {
+    width: 250px;
+    padding: 60px 15px 15px;
+    gap: 0.5rem;
+  }
+  
+  .mobile-nav-link {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    border-radius: 8px;
+  }
+  
   .main-content {
-    padding: 1rem;
+    padding: 0.75rem;
   }
 }
 
@@ -254,8 +276,30 @@
 
 /* Адаптивність для глобального модального вікна */
 @media (max-width: 768px) {
+  .global-image-modal {
+    padding: 10px;
+  }
+  
   .global-modal-content {
-    padding: 15px;
-    max-width: 95%;
+    padding: 10px;
+    max-width: 98%;
+    max-height: 95%;
+    border-radius: 10px;
+  }
+  
+  .global-close-button {
+    width: 25px;
+    height: 25px;
+    font-size: 16px;
+    top: 8px;
+    right: 10px;
+  }
+  
+  .global-modal-image {
+    margin-bottom: 10px;
+  }
+  
+  .global-modal-caption {
+    font-size: 0.85rem;
   }
 }
