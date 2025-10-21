@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 // Імпорт компонентів з нової структури папок
@@ -13,6 +13,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState('general')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [globalModalImage, setGlobalModalImage] = useState(null)
+  const [showScrollToTop, setShowScrollToTop] = useState(false)
   
   const handlePageChange = (page) => {
     setCurrentPage(page)
@@ -29,6 +30,21 @@ function App() {
     document.body.style.overflow = 'auto'
     setGlobalModalImage(null)
   }
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  // Відстеження скролу для показу кнопки scroll to top
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+      setShowScrollToTop(scrollTop > 100)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const renderPage = () => {
     switch (currentPage) {
@@ -180,6 +196,15 @@ function App() {
           </div>
         </div>
       )}
+
+      {/* Кнопка Scroll to Top */}
+      <button 
+        className={`scroll-to-top ${showScrollToTop ? 'visible' : ''}`}
+        onClick={scrollToTop}
+        aria-label="Scroll to top"
+      >
+        ↑
+      </button>
     </div>
   )
 }

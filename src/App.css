@@ -251,6 +251,73 @@ html {
   }
 }
 
+/* Кнопка Scroll to Top */
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: 900;
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 
+    0 8px 25px rgba(102, 126, 234, 0.4),
+    0 0 15px rgba(102, 126, 234, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.8);
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.scroll-to-top:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 
+    0 12px 35px rgba(102, 126, 234, 0.5),
+    0 0 20px rgba(102, 126, 234, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.scroll-to-top:active {
+  transform: scale(0.95) translateY(0);
+}
+
+/* Мобільна адаптація для кнопки */
+@media (max-width: 768px) {
+  .scroll-to-top {
+    bottom: 25px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+}
+
 /* Для iPhone 15 та менших екранів */
 @media (max-width: 480px) {
   .navigation {
@@ -321,6 +388,73 @@ html {
   body {
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-y: none;
+  }
+}
+
+/* Кнопка Scroll to Top */
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: 900;
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 
+    0 8px 25px rgba(102, 126, 234, 0.4),
+    0 0 15px rgba(102, 126, 234, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.8);
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.scroll-to-top:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 
+    0 12px 35px rgba(102, 126, 234, 0.5),
+    0 0 20px rgba(102, 126, 234, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.scroll-to-top:active {
+  transform: scale(0.95) translateY(0);
+}
+
+/* Мобільна адаптація для кнопки */
+@media (max-width: 768px) {
+  .scroll-to-top {
+    bottom: 25px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
   }
 }
 
@@ -412,5 +546,72 @@ html {
   
   .global-modal-caption {
     font-size: 0.85rem;
+  }
+}
+
+/* Кнопка Scroll to Top */
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: 900;
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 
+    0 8px 25px rgba(102, 126, 234, 0.4),
+    0 0 15px rgba(102, 126, 234, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.8);
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.scroll-to-top:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 
+    0 12px 35px rgba(102, 126, 234, 0.5),
+    0 0 20px rgba(102, 126, 234, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.scroll-to-top:active {
+  transform: scale(0.95) translateY(0);
+}
+
+/* Мобільна адаптація для кнопки */
+@media (max-width: 768px) {
+  .scroll-to-top {
+    bottom: 25px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
   }
 }
