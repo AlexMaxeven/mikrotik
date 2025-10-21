@@ -1,0 +1,587 @@
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+.title {
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.description {
+  text-align: center;
+  color: #000;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
+.scrollButtonContainer {
+  position: relative;
+  text-align: center;
+  margin: 30px 0;
+  transition: all 0.3s ease;
+}
+
+.scrollButtonContainer.sticky {
+  position: sticky;
+  top: 20px;
+  z-index: 100;
+}
+
+.scrollButton {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  transition: all 0.3s ease;
+}
+
+.scrollButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.settingsGrid {
+  margin-bottom: 40px;
+}
+
+.settingsCategory {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.categoryTitle {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.settingsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.settingItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border-left: 4px solid #667eea;
+  transition: all 0.3s ease;
+}
+
+.settingItem:hover {
+  background: #e8f4fd;
+  transform: translateX(5px);
+}
+
+.settingIcon {
+  font-size: 1.5rem;
+  min-width: 40px;
+  text-align: center;
+}
+
+.settingContent strong {
+  display: block;
+  color: #2c3e50;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.settingContent p {
+  color: #5a6c7d;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.detailedGuide {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.guideTitle {
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.accordionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.accordionItem {
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.accordionItem.active {
+  border-color: #667eea;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.2);
+}
+
+.accordionHeader {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.accordionHeader:hover {
+  background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+}
+
+.accordionTitle {
+  color: #2c3e50;
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.accordionIcon {
+  font-size: 1.2rem;
+  color: #667eea;
+  transition: transform 0.3s ease;
+}
+
+.accordionItem.active .accordionIcon {
+  transform: rotate(180deg);
+}
+
+.accordionContent {
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.accordionItem.active .accordionContent {
+  padding: 25px;
+  max-height: none;
+  overflow: visible;
+}
+
+.ruleSection {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border-left: 4px solid #28a745;
+}
+
+.ruleSection:last-child {
+  margin-bottom: 0;
+}
+
+.ruleSection h4 {
+  color: #2c3e50;
+  margin: 0 0 15px 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.ruleList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px 0;
+}
+
+.ruleList li {
+  padding: 5px 0;
+  color: #495057;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+}
+
+.ruleDescription {
+  color: #6c757d;
+  margin: 0;
+  font-style: italic;
+  padding: 10px;
+  background: #e8f4fd;
+  border-radius: 8px;
+  border-left: 3px solid #17a2b8;
+}
+
+.screenshotNote {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.screenshot {
+  max-width: 600px;
+  height: auto;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border: 2px solid #dee2e6;
+}
+
+.screenshot:hover {
+  transform: scale(1.05);
+  border-color: #667eea;
+}
+
+.resultSection {
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.resultSection h4 {
+  color: #155724;
+  margin: 0 0 15px 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.resultList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.resultList li {
+  padding: 8px 0;
+  color: #155724;
+  font-weight: 500;
+}
+
+/* Модальне вікно для зображень */
+.imageModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modalContent {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  max-width: 90%;
+  max-height: 90%;
+  position: relative;
+  overflow: auto;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.closeButton:hover {
+  background: #c82333;
+}
+
+.modalImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.modalCaption {
+  text-align: center;
+  color: #6c757d;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+  .page {
+    padding: 15px;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .accordionContent {
+    padding: 20px;
+  }
+  
+  .screenshotNote {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .screenshot {
+    max-width: 100%;
+  }
+  
+  .modalContent {
+    max-width: 95%;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .accordionHeader {
+    padding: 15px;
+  }
+  
+  .accordionTitle {
+    font-size: 1.1rem;
+  }
+  
+  .ruleSection {
+    padding: 15px;
+  }
+}
+
+/* Стилі для блоку "Актуальні правила" */
+.currentRules {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  margin-top: 2rem;
+}
+
+.rulesTitle {
+  color: #333;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.rulesDescription {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.rulesContainer {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.ruleCard {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  transition: all 0.3s ease;
+}
+
+.ruleCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.15);
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+.ruleHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.ruleIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.ruleCardTitle {
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.ruleContent {
+  color: #666;
+  line-height: 1.6;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.ruleContent p {
+  margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Адаптивність для нового блоку */
+@media (max-width: 768px) {
+  .currentRules {
+    padding: 1rem;
+  }
+  
+  .rulesTitle {
+    font-size: 1.5rem;
+  }
+  
+  .rulesContainer {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .ruleCard {
+    padding: 1rem;
+  }
+  
+  .ruleCardTitle {
+    font-size: 1.1rem;
+  }
+}
+
+/* Стилі для блоку з командами */
+.commandsSection {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.commandsTitle {
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.commandsDescription {
+  color: #666;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.commandsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.commandBlock {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 1.5rem;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.commandBlockTitle {
+  color: #333;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.commandCode {
+  background: #2d3748;
+  border-radius: 8px;
+  padding: 1rem;
+  font-family: 'Courier New', monospace;
+  overflow-x: auto;
+}
+
+.commandCode code {
+  display: block;
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.commandCode code:last-child {
+  margin-bottom: 0;
+}
+
+.commandCode code:hover {
+  cursor: default;
+}
+
+/* Адаптивність для команд */
+@media (max-width: 768px) {
+  .commandsSection {
+    padding: 1rem;
+  }
+  
+  .commandsTitle {
+    font-size: 1.3rem;
+  }
+  
+  .commandCode {
+    padding: 0.8rem;
+  }
+  
+  .commandCode code {
+    font-size: 0.8rem;
+  }
+}
