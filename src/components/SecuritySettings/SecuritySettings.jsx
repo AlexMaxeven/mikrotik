@@ -20,7 +20,6 @@ function SecuritySettings() {
   const buttonRef = useRef(null)
 
   const toggleAccordion = (index) => {
-    console.log('Toggle accordion:', index, 'Current:', openAccordions)
     setOpenAccordions(prev => {
       if (prev.includes(index)) {
         // Якщо акордеон вже відкритий - закриваємо його
@@ -40,8 +39,6 @@ function SecuritySettings() {
   }
 
   const openImageModal = (imageSrc, imageAlt, event) => {
-    console.log('openImageModal called:', imageSrc, imageAlt)
-    
     // Просто показуємо модальне вікно по центру екрану
     setSelectedImage({ 
       src: imageSrc, 
@@ -50,7 +47,6 @@ function SecuritySettings() {
   }
 
   const closeImageModal = () => {
-    console.log('closeImageModal called')
     setSelectedImage(null)
   }
 
@@ -88,18 +84,6 @@ function SecuritySettings() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Додаємо useEffect для відстеження змін openAccordions
-  useEffect(() => {
-    console.log('openAccordions changed:', openAccordions)
-  }, [openAccordions])
-
-  // Додаємо useEffect для відстеження змін selectedImage
-  useEffect(() => {
-    console.log('selectedImage changed:', selectedImage)
-    if (selectedImage && selectedImage.position) {
-      console.log('Modal position:', selectedImage.position)
-    }
-  }, [selectedImage])
 
   return (
     <div className={styles.page}>

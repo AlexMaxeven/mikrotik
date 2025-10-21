@@ -7,6 +7,7 @@ import BasicSettings from './components/BasicSettings/BasicSettings'
 import AdditionalSettings1 from './components/AdditionalSettings1/AdditionalSettings1'
 import Backup from './components/Backup/Backup'
 import SecuritySettings from './components/SecuritySettings/SecuritySettings'
+import Scripts from './components/Scripts/Scripts'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('general')
@@ -41,6 +42,8 @@ function App() {
         return <Backup onImageClick={openGlobalImageModal} />
       case 'security':
         return <SecuritySettings />
+      case 'scripts':
+        return <Scripts />
       default:
         return <MikroTikGeneral />
     }
@@ -92,6 +95,12 @@ function App() {
             🔐 Налаштування захисту
           </button>
           
+          <button 
+            className={`nav-link ${currentPage === 'scripts' ? 'active' : ''}`}
+            onClick={() => handlePageChange('scripts')}
+          >
+            📜 Скрипти
+          </button>
           
           <button 
             className={`nav-link ${currentPage === 'additional1' ? 'active' : ''}`}
@@ -134,6 +143,12 @@ function App() {
             onClick={() => handlePageChange('security')}
           >
             🔐 Налаштування захисту
+          </button>
+          <button 
+            className={`mobile-nav-link ${currentPage === 'scripts' ? 'active' : ''}`}
+            onClick={() => handlePageChange('scripts')}
+          >
+            📜 Скрипти
           </button>
           <button 
             className={`mobile-nav-link ${currentPage === 'additional1' ? 'active' : ''}`}

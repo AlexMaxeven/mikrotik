@@ -102,7 +102,7 @@ function Backup({ onImageClick }) {
                 <p>Необхідно підключити базові налаштування на 1 провайдера, потім підключити інші, резервні</p>
               </div>
             </div>
-                         <div className={styles.settingItem}>
+              <div className={styles.settingItem}>
                <span className={styles.settingIcon}>🌉</span>
                <div className={styles.settingContent}>
                  <strong>Bridge налаштування</strong>
@@ -140,12 +140,12 @@ function Backup({ onImageClick }) {
                 <li>Переконайся що <strong>Use Peer DNS</strong> відмічено</li>
                 <li>Переконайся що <strong>Use Peer NTP</strong> відмічено</li>
                 <li>У полі <strong>Add Default Route</strong> встанови <strong>yes</strong></li>
-                                 <li>У полі <strong>Default Route Distance</strong> встанови <strong>2</strong> (для 2-го провайдера)</li>
-                 <li>У полі <strong>Check Gateway</strong> встанови <strong>ping</strong> (⚠️ <strong>Важливо:</strong> це потрібно для ВСІХ провайдерів - і для першого, і для резервних!)</li>
-                 <li>Натисни <strong>OK</strong></li>
-                                  <li>Повтори для інших провайдерів з відповідними портами та distance</li>
+                <li>У полі <strong>Default Route Distance</strong> встанови <strong>2</strong> (для 2-го провайдера)</li>
+                <li>У полі <strong>Check Gateway</strong> встанови <strong>ping</strong> (⚠️ <strong>Важливо:</strong> це потрібно для ВСІХ провайдерів - і для першого, і для резервних!)</li>
+                <li>Натисни <strong>OK</strong></li>
+                <li>Повтори для інших провайдерів з відповідними портами та distance</li>
                </ol>
-                               <div className={styles.screenshotNote}>
+                <div className={styles.screenshotNote}>
                   <img 
                     src={dhcp1Img} 
                     alt="DHCP Client налаштування 1" 
@@ -184,8 +184,8 @@ function Backup({ onImageClick }) {
                 <li>Натисни <strong>OK</strong></li>
                 <li>Повтори для всіх резервних провайдерів</li>
               </ol>
-                             <div className={styles.screenshotNote}>
-                                   <img 
+                <div className={styles.screenshotNote}>
+                  <img 
                     src={addressImg} 
                     alt="Address List налаштування" 
                     className={styles.screenshot} 
@@ -212,8 +212,8 @@ function Backup({ onImageClick }) {
                 <li>Натисни <strong>OK</strong></li>
                                  <li>Повтори для всіх резервних провайдерів</li>
                </ol>
-                               <div className={styles.screenshotNote}>
-                                     <img 
+                <div className={styles.screenshotNote}>
+                  <img 
                      src={natImg} 
                      alt="Firewall NAT налаштування" 
                      className={styles.screenshot} 
@@ -242,29 +242,29 @@ function Backup({ onImageClick }) {
                 <li>Переконайся що <strong>Enabled</strong> відмічено</li>
                 <li>Натисни <strong>OK</strong></li>
               </ol>
-                                                           <div className={styles.screenshotNote}>
-                                     <img 
-                     src={route1Img} 
-                     alt="Route List налаштування 1" 
-                     className={styles.screenshot} 
-                     onClick={(e) => onImageClick(route1Img, "Route List налаштування 1")}
-                   />
-                   <img 
-                     src={route2Img} 
-                     alt="Route List налаштування 2" 
-                     className={styles.screenshot} 
-                     onClick={(e) => onImageClick(route2Img, "Route List налаштування 2")}
-                   />
-                   <img 
-                     src={route3Img} 
-                     alt="Route List налаштування 3" 
-                     className={styles.screenshot} 
-                     onClick={(e) => onImageClick(route3Img, "Route List налаштування 3")}
-                   />
-                </div>
+              <div className={styles.screenshotNote}>
+                <img 
+                    src={route1Img} 
+                    alt="Route List налаштування 1" 
+                    className={styles.screenshot} 
+                    onClick={(e) => onImageClick(route1Img, "Route List налаштування 1")}
+                  />
+                  <img 
+                    src={route2Img} 
+                    alt="Route List налаштування 2" 
+                    className={styles.screenshot} 
+                    onClick={(e) => onImageClick(route2Img, "Route List налаштування 2")}
+                  />
+                  <img 
+                    src={route3Img} 
+                    alt="Route List налаштування 3" 
+                    className={styles.screenshot} 
+                    onClick={(e) => onImageClick(route3Img, "Route List налаштування 3")}
+                  />
+              </div>
             </div>
           </div>
-                 </div>
+        </div>
        </div>
      </div>
    )
