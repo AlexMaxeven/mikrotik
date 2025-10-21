@@ -171,11 +171,11 @@
 /* Адаптивність */
 @media (max-width: 768px) {
   .navigation {
-    padding: 0.5rem 0.75rem;
+    padding: 0.4rem 0.6rem;
   }
   
   .nav-brand h2 {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   
   .nav-links {
@@ -184,8 +184,8 @@
   
   .burger-menu {
     display: flex;
-    width: 25px;
-    height: 25px;
+    width: 22px;
+    height: 22px;
   }
   
   .burger-line {
@@ -197,19 +197,76 @@
   }
   
   .mobile-menu-content {
-    width: 250px;
-    padding: 60px 15px 15px;
-    gap: 0.5rem;
+    width: 220px;
+    padding: 50px 12px 12px;
+    gap: 0.4rem;
   }
   
   .mobile-nav-link {
-    padding: 0.75rem;
-    font-size: 0.9rem;
-    border-radius: 8px;
+    padding: 0.6rem;
+    font-size: 0.8rem;
+    border-radius: 6px;
   }
   
   .main-content {
-    padding: 0.75rem;
+    padding: 0.5rem;
+  }
+}
+
+/* Для iPhone 15 та менших екранів */
+@media (max-width: 480px) {
+  .navigation {
+    padding: 0.3rem 0.5rem;
+  }
+  
+  .nav-brand h2 {
+    font-size: 0.9rem;
+  }
+  
+  .burger-menu {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .mobile-menu-content {
+    width: 200px;
+    padding: 45px 10px 10px;
+  }
+  
+  .mobile-nav-link {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+  
+  .main-content {
+    padding: 0.4rem;
+  }
+  
+  .global-image-modal {
+    padding: 5px;
+  }
+  
+  .global-modal-content {
+    padding: 8px;
+    max-width: 99%;
+    max-height: 98%;
+    border-radius: 8px;
+  }
+  
+  .global-close-button {
+    width: 22px;
+    height: 22px;
+    font-size: 14px;
+    top: 6px;
+    right: 8px;
+  }
+  
+  .global-modal-image {
+    margin-bottom: 8px;
+  }
+  
+  .global-modal-caption {
+    font-size: 0.75rem;
   }
 }
 

@@ -498,6 +498,7 @@
     font-size: 0.75rem;
     margin-bottom: 0.6rem;
   }
+
 }
 
 @media (max-width: 480px) {
@@ -713,3 +714,121 @@
     font-size: 0.8rem;
   }
 }
+
+/* Для iPhone 15 та менших екранів */
+@media (max-width: 480px) {
+  .page {
+    padding: 0.4rem;
+    border-radius: 10px;
+  }
+  
+  .title {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .description {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .accordionHeader {
+    padding: 0.6rem;
+    border-radius: 8px;
+  }
+  
+  .accordionTitle {
+    font-size: 0.85rem;
+  }
+  
+  .accordionContent {
+    padding: 0.6rem;
+  }
+  
+  .stepList {
+    font-size: 0.75rem;
+    padding-left: 0.8rem;
+  }
+  
+  .screenshotNote {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+  
+  .modalContent {
+    max-width: 99%;
+    padding: 6px;
+    max-height: 98%;
+  }
+  
+  .closeButton {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+  }
+  
+  .modalCaption {
+    font-size: 0.7rem;
+  }
+  
+  .currentRules {
+    padding: 0.6rem;
+    margin-top: 1rem;
+  }
+  
+  .rulesTitle {
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .rulesDescription {
+    font-size: 0.75rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .ruleCard {
+    padding: 0.5rem;
+  }
+  
+  .ruleCardTitle {
+    font-size: 0.8rem;
+  }
+  
+  .ruleContent {
+    font-size: 0.7rem;
+  }
+  
+  .commandsSection {
+    padding: 0.6rem;
+    margin-top: 1rem;
+  }
+  
+  .commandsTitle {
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .commandsDescription {
+    font-size: 0.75rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .commandBlock {
+    padding: 0.5rem;
+  }
+  
+  .commandBlockTitle {
+    font-size: 0.8rem;
+  }
+  
+  .commandCode {
+    font-size: 0.7rem;
+    padding: 0.3rem;
+  }
+  
+  .commandCode code {
+    font-size: 0.65rem;
+    margin-bottom: 0.4rem;
+  }
+}
+

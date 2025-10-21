@@ -607,14 +607,78 @@
   }
 }
 
+/* Для iPhone 15 та менших екранів */
 @media (max-width: 480px) {
-  .modal {
-    max-width: 98%;
-    max-height: 95vh;
-    margin: 0.5rem;
+  .terminologySection {
+    margin-top: 4rem;
+    padding: 3rem 0rem;
+    
   }
+  .page {
+    padding: 0.4rem;
+    border-radius: 10px;
+  }
+  
+  .title {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .companyInfoSection {
+    margin-bottom: 1rem;
+  }
+  
+  .toggleButton {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+    border-radius: 15px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .companyInfoContent {
+    padding: 0.6rem;
+    border-radius: 8px;
+  }
+  
+  .companyInfoContent h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .companyInfoContent p {
+    font-size: 0.75rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  
+  .companyInfoContent ul {
+    font-size: 0.75rem;
+    line-height: 1.3;
+    padding-left: 0.8rem;
+  }
+  
+  .companyInfoContent li {
+    margin-bottom: 0.3rem;
+  }
+  
+  .modal {
+    max-width: 99%;
+    max-height: 98vh;
+    margin: 0.2rem;
+  }
+  
   .modalContent {
-    padding: 1rem;
-    max-height: calc(95vh - 120px);
+    padding: 0.6rem;
+    max-height: calc(98vh - 80px);
+  }
+  
+  .closeButton {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+  }
+  
+  .modalCaption {
+    font-size: 0.7rem;
   }
 }

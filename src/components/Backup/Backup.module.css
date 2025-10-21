@@ -396,109 +396,177 @@
 /* Адаптивність */
 @media (max-width: 768px) {
   .page {
-    padding: 0.75rem;
-    border-radius: 15px;
+    padding: 0.6rem;
+    border-radius: 12px;
   }
   
   .title {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
   }
   
   .description {
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
   }
   
   .content {
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border-radius: 10px;
+    padding: 0.8rem;
+    margin-bottom: 0.8rem;
+    border-radius: 8px;
   }
   
   .scrollButtonContainer {
-    padding: 0.5rem 0;
-    margin: 0 -0.5rem 1.5rem -0.5rem;
+    padding: 0.4rem 0;
+    margin: 0 -0.4rem 1.2rem -0.4rem;
   }
   
   .scrollButton {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
-    border-radius: 25px;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    border-radius: 20px;
   }
   
   .guideTitle {
-    font-size: 1.3rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
   }
   
   .accordionHeader {
-    padding: 0.75rem;
-    border-radius: 12px;
-    margin-bottom: 0.75rem;
+    padding: 0.8rem;
+    border-radius: 10px;
+    margin-bottom: 0.6rem;
   }
   
   .accordionTitle {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
   
   .accordionContent {
-    padding: 0 0.75rem;
+    padding: 0 0.8rem;
   }
   
   .accordionItem.active .accordionContent {
-    padding: 0.75rem;
+    padding: 0.8rem;
   }
   
   .stepList {
-    font-size: 0.85rem;
-    line-height: 1.5;
-    padding-left: 1.2rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    padding-left: 1rem;
   }
   
   .stepList li {
-    margin-bottom: 0.6rem;
-    padding-left: 0.4rem;
+    margin-bottom: 0.5rem;
+    padding-left: 0.3rem;
   }
   
   .screenshot {
     max-width: 100%;
     min-width: auto;
-    margin: 0.4rem 0;
-    border-radius: 6px;
+    margin: 0.3rem 0;
+    border-radius: 4px;
   }
   
   .screenshotNote {
     flex-direction: column;
-    gap: 0.4rem;
-    padding: 0.75rem;
-    font-size: 0.85rem;
-    margin-top: 0.75rem;
-    border-radius: 8px;
+    gap: 0.3rem;
+    padding: 0.6rem;
+    font-size: 0.8rem;
+    margin-top: 0.6rem;
+    border-radius: 6px;
   }
   
   .modalContent {
     padding: 10px;
     max-width: 98%;
     max-height: 95%;
-    border-radius: 10px;
+    border-radius: 8px;
   }
   
   .modalImage {
     max-height: 60vh;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
   
   .closeButton {
-    width: 25px;
-    height: 25px;
-    font-size: 16px;
-    top: 8px;
-    right: 10px;
+    width: 22px;
+    height: 22px;
+    font-size: 14px;
+    top: 6px;
+    right: 8px;
   }
   
   .modalCaption {
+    font-size: 0.75rem;
+  }
+}
+
+/* Для iPhone 15 та менших екранів */
+@media (max-width: 480px) {
+  .page {
+    padding: 0.4rem;
+    border-radius: 10px;
+  }
+  
+  .title {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .description {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .content {
+    padding: 0.6rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .scrollButton {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+  }
+  
+  .guideTitle {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .accordionHeader {
+    padding: 0.6rem;
+    border-radius: 8px;
+  }
+  
+  .accordionTitle {
     font-size: 0.85rem;
+  }
+  
+  .stepList {
+    font-size: 0.75rem;
+    padding-left: 0.8rem;
+  }
+  
+  .screenshotNote {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+  
+  .modalContent {
+    padding: 6px;
+    max-width: 99%;
+    max-height: 98%;
+  }
+  
+  .closeButton {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+  }
+  
+  .modalCaption {
+    font-size: 0.7rem;
   }
 }
 
