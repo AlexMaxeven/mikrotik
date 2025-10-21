@@ -211,48 +211,38 @@
 }
 
 .accordionItem:hover {
-  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.15);
   border-color: rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
+}
+
+.accordionItem.active {
+  border-color: rgba(102, 126, 234, 0.5);
+  box-shadow: 0 6px 25px rgba(102, 126, 234, 0.2);
 }
 
 .accordionHeader {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 1.5rem;
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem;
-  cursor: pointer;
-  background: rgba(102, 126, 234, 0.05);
-  border-radius: 15px;
-  margin-bottom: 1rem;
   transition: all 0.3s ease;
-  border: 1px solid rgba(102, 126, 234, 0.1);
 }
 
 .accordionHeader:hover {
-  background: rgba(102, 126, 234, 0.1);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.15);
-}
-
-.accordionItem.active .accordionHeader {
-  background: rgba(102, 126, 234, 0.15);
-  border-color: rgba(102, 126, 234, 0.3);
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  margin-bottom: 0;
+  background: linear-gradient(135deg, #5a6fd8, #6a4190);
 }
 
 .accordionTitle {
-  color: #333;
   margin: 0;
   font-size: 1.2rem;
   font-weight: 600;
 }
 
 .accordionIcon {
-  color: #667eea;
   font-size: 1.2rem;
-  font-weight: bold;
   transition: transform 0.3s ease;
 }
 
@@ -261,70 +251,70 @@
 }
 
 .accordionContent {
+  padding: 0;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease-in-out;
-  padding: 0 1.5rem;
+  transition: all 0.3s ease;
 }
 
 .accordionItem.active .accordionContent {
+  padding: 2rem;
   max-height: 1000px;
-  padding: 1.5rem;
 }
 
-/* Стилі для списків та контенту */
+/* Список кроків */
 .stepList {
-  color: #666;
+  color: #333;
   line-height: 1.8;
-  margin: 0;
+  margin-bottom: 1.5rem;
   padding-left: 1.5rem;
 }
 
 .stepList li {
   margin-bottom: 0.8rem;
-  padding-left: 0.5rem;
 }
 
 .stepList strong {
-  color: #333;
+  color: #667eea;
   font-weight: 600;
 }
 
-/* Стилі для приміток про скріншоти */
+/* Скріншоти */
 .screenshotNote {
-  background: rgba(102, 126, 234, 0.08);
-  border: 1px solid rgba(102, 126, 234, 0.2);
-  border-radius: 10px;
+  text-align: center;
   padding: 1rem;
+  background: rgba(102, 126, 234, 0.05);
+  border-radius: 10px;
+  border: 1px dashed rgba(102, 126, 234, 0.3);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
   margin-top: 1rem;
-  color: #555;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  border-left: 3px solid #667eea;
 }
 
-.screenshotNote strong {
-  color: #333;
-  font-weight: 600;
+.screenshotNote p {
+  color: #667eea;
+  font-weight: 500;
+  margin: 0;
+  font-size: 0.9rem;
 }
 
-/* Стилі для зображень скріншотів */
 .screenshot {
   width: 100%;
-  max-width: 600px;
+  max-width: 400px;
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(102, 126, 234, 0.2);
-  margin-top: 0.5rem;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .screenshot:hover {
   transform: scale(1.02);
-  transition: transform 0.3s ease;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -360,7 +350,7 @@
 }
 
 .resultList {
-  color: #666;
+  color: #333;
   line-height: 1.6;
   margin: 0;
   padding-left: 1.5rem;

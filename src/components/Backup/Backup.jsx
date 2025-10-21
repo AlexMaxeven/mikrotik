@@ -12,13 +12,23 @@ import route2Img from '../../assets/Reserve_connect/route2.jpg'
 import route3Img from '../../assets/Reserve_connect/route3.jpg'
 
 function Backup({ onImageClick }) {
-  const [openAccordion, setOpenAccordion] = useState(null)
+  const [openAccordions, setOpenAccordions] = useState([])
   const [isSticky, setIsSticky] = useState(false)
   const guideRef = useRef(null)
   const buttonRef = useRef(null)
 
   const toggleAccordion = (index) => {
-    setOpenAccordion(openAccordion === index ? null : index)
+    // Якщо натиснули на вже відкритий - закриваємо
+    // Якщо натиснули на закритий - відкриваємо (не закриваємо інші)
+    setOpenAccordions(prev => {
+      if (prev.includes(index)) {
+        // Видаляємо з масиву (закриваємо)
+        return prev.filter(item => item !== index)
+      } else {
+        // Додаємо до масиву (відкриваємо)
+        return [...prev, index]
+      }
+    })
   }
 
   const scrollToGuide = () => {
@@ -116,7 +126,7 @@ function Backup({ onImageClick }) {
         
         <div className={styles.accordionContainer}>
           {/* Етап 1 */}
-          <div className={`${styles.accordionItem} ${openAccordion === 0 ? styles.active : ''}`}>
+          <div className={`${styles.accordionItem} ${openAccordions.includes(0) ? styles.active : ''}`}>
             <div className={styles.accordionHeader} onClick={() => toggleAccordion(0)}>
               <h3 className={styles.accordionTitle}>Етап 1. DHCP Client для резервних провайдерів</h3>
               <span className={styles.accordionIcon}>▼</span>
@@ -159,7 +169,7 @@ function Backup({ onImageClick }) {
           </div>
 
           {/* Етап 2 */}
-          <div className={`${styles.accordionItem} ${openAccordion === 1 ? styles.active : ''}`}>
+          <div className={`${styles.accordionItem} ${openAccordions.includes(1) ? styles.active : ''}`}>
             <div className={styles.accordionHeader} onClick={() => toggleAccordion(1)}>
               <h3 className={styles.accordionTitle}>Етап 2. Address List для резервних провайдерів</h3>
               <span className={styles.accordionIcon}>▼</span>
@@ -186,7 +196,7 @@ function Backup({ onImageClick }) {
           </div>
 
           {/* Етап 3 */}
-          <div className={`${styles.accordionItem} ${openAccordion === 2 ? styles.active : ''}`}>
+          <div className={`${styles.accordionItem} ${openAccordions.includes(2) ? styles.active : ''}`}>
             <div className={styles.accordionHeader} onClick={() => toggleAccordion(2)}>
               <h3 className={styles.accordionTitle}>Етап 3. Firewall - NAT для резервних провайдерів</h3>
               <span className={styles.accordionIcon}>▼</span>
@@ -214,7 +224,7 @@ function Backup({ onImageClick }) {
           </div>
 
           {/* Етап 4 */}
-          <div className={`${styles.accordionItem} ${openAccordion === 3 ? styles.active : ''}`}>
+          <div className={`${styles.accordionItem} ${openAccordions.includes(3) ? styles.active : ''}`}>
             <div className={styles.accordionHeader} onClick={() => toggleAccordion(3)}>
               <h3 className={styles.accordionTitle}>Етап 4. Route List - перевірка та налаштування</h3>
               <span className={styles.accordionIcon}>▼</span>

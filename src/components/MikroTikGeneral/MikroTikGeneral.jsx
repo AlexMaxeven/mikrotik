@@ -3,14 +3,24 @@ import styles from './MikroTikGeneral.module.css'
 
 function MikroTikGeneral() {
   const [showCompanyInfo, setShowCompanyInfo] = useState(false)
-  const [expandedTerm, setExpandedTerm] = useState(null)
+  const [expandedTerms, setExpandedTerms] = useState([])
 
   const toggleCompanyInfo = () => {
     setShowCompanyInfo(!showCompanyInfo)
   }
 
   const toggleTerm = (term) => {
-    setExpandedTerm(expandedTerm === term ? null : term)
+    // Якщо натиснули на вже відкритий - закриваємо
+    // Якщо натиснули на закритий - відкриваємо (не закриваємо інші)
+    setExpandedTerms(prev => {
+      if (prev.includes(term)) {
+        // Видаляємо з масиву (закриваємо)
+        return prev.filter(item => item !== term)
+      } else {
+        // Додаємо до масиву (відкриваємо)
+        return [...prev, term]
+      }
+    })
   }
 
   return (
@@ -69,10 +79,12 @@ function MikroTikGeneral() {
               className={styles.detailsButton}
               onClick={() => toggleTerm('wan')}
             >
-              📖 {expandedTerm === 'wan' ? 'Згорнути' : 'Детальніше'}
+              📖 {expandedTerms.includes('wan') ? 'Згорнути' : 'Детальніше'}
             </button>
-            {expandedTerm === 'wan' && (
-              <div className={`${styles.accordionContent} ${styles.open}`}>
+            {expandedTerms.includes('wan') && (
+              <div 
+                className={`${styles.accordionContent} ${styles.open}`}
+              >
                 <div className={styles.termDetails}>
                   <p className={styles.termMainDefinition}>
                     WAN (Wide Area Network) — це глобальна мережа, зазвичай Інтернет.
@@ -138,10 +150,12 @@ function MikroTikGeneral() {
               className={styles.detailsButton}
               onClick={() => toggleTerm('lan')}
             >
-              📖 {expandedTerm === 'lan' ? 'Згорнути' : 'Детальніше'}
+              📖 {expandedTerms.includes('lan') ? 'Згорнути' : 'Детальніше'}
             </button>
-            {expandedTerm === 'lan' && (
-              <div className={`${styles.accordionContent} ${styles.open}`}>
+            {expandedTerms.includes('lan') && (
+              <div 
+                className={`${styles.accordionContent} ${styles.open}`}
+              >
                 <div className={styles.termDetails}>
                   <p className={styles.termMainDefinition}>
                     LAN (Local Area Network) — локальна мережа твоїх пристроїв.
@@ -196,10 +210,12 @@ function MikroTikGeneral() {
               className={styles.detailsButton}
               onClick={() => toggleTerm('nat')}
             >
-              📖 {expandedTerm === 'nat' ? 'Згорнути' : 'Детальніше'}
+              📖 {expandedTerms.includes('nat') ? 'Згорнути' : 'Детальніше'}
             </button>
-            {expandedTerm === 'nat' && (
-              <div className={`${styles.accordionContent} ${styles.open}`}>
+            {expandedTerms.includes('nat') && (
+              <div 
+                className={`${styles.accordionContent} ${styles.open}`}
+              >
                 <div className={styles.termDetails}>
                   <p className={styles.termMainDefinition}>
                     NAT (Network Address Translation) — технологія підміни адрес при виході в Інтернет.
@@ -258,10 +274,12 @@ function MikroTikGeneral() {
               className={styles.detailsButton}
               onClick={() => toggleTerm('dhcp')}
             >
-              📖 {expandedTerm === 'dhcp' ? 'Згорнути' : 'Детальніше'}
+              📖 {expandedTerms.includes('dhcp') ? 'Згорнути' : 'Детальніше'}
             </button>
-            {expandedTerm === 'dhcp' && (
-              <div className={`${styles.accordionContent} ${styles.open}`}>
+            {expandedTerms.includes('dhcp') && (
+              <div 
+                className={`${styles.accordionContent} ${styles.open}`}
+              >
                 <div className={styles.termDetails}>
                   <p className={styles.termMainDefinition}>
                     DHCP (Dynamic Host Configuration Protocol) — автоматична видача налаштувань мережі пристроям.
@@ -322,10 +340,12 @@ function MikroTikGeneral() {
               className={styles.detailsButton}
               onClick={() => toggleTerm('dns')}
             >
-              📖 {expandedTerm === 'dns' ? 'Згорнути' : 'Детальніше'}
+              📖 {expandedTerms.includes('dns') ? 'Згорнути' : 'Детальніше'}
             </button>
-            {expandedTerm === 'dns' && (
-              <div className={`${styles.accordionContent} ${styles.open}`}>
+            {expandedTerms.includes('dns') && (
+              <div 
+                className={`${styles.accordionContent} ${styles.open}`}
+              >
                 <div className={styles.termDetails}>
                   <p className={styles.termMainDefinition}>
                     DNS (Domain Name System) — телефонна книга Інтернету.
@@ -384,10 +404,12 @@ function MikroTikGeneral() {
               className={styles.detailsButton}
               onClick={() => toggleTerm('mac')}
             >
-              📖 {expandedTerm === 'mac' ? 'Згорнути' : 'Детальніше'}
+              📖 {expandedTerms.includes('mac') ? 'Згорнути' : 'Детальніше'}
             </button>
-            {expandedTerm === 'mac' && (
-              <div className={`${styles.accordionContent} ${styles.open}`}>
+            {expandedTerms.includes('mac') && (
+              <div 
+                className={`${styles.accordionContent} ${styles.open}`}
+              >
                 <div className={styles.termDetails}>
                   <p className={styles.termMainDefinition}>
                     MAC (Media Access Control) — це апаратна адреса, «паспорт» кожного мережевого інтерфейсу.
@@ -439,10 +461,12 @@ function MikroTikGeneral() {
               className={styles.detailsButton}
               onClick={() => toggleTerm('bridge')}
             >
-              📖 {expandedTerm === 'bridge' ? 'Згорнути' : 'Детальніше'}
+              📖 {expandedTerms.includes('bridge') ? 'Згорнути' : 'Детальніше'}
             </button>
-            {expandedTerm === 'bridge' && (
-              <div className={`${styles.accordionContent} ${styles.open}`}>
+            {expandedTerms.includes('bridge') && (
+              <div 
+                className={`${styles.accordionContent} ${styles.open}`}
+              >
                 <div className={styles.termDetails}>
                   <p className={styles.termMainDefinition}>
                     Bridge — це «міст», який з'єднує кілька інтерфейсів так, щоб вони працювали, як одна мережа.
@@ -490,10 +514,12 @@ function MikroTikGeneral() {
               className={styles.detailsButton}
               onClick={() => toggleTerm('mtu')}
             >
-              📖 {expandedTerm === 'mtu' ? 'Згорнути' : 'Детальніше'}
+              📖 {expandedTerms.includes('mtu') ? 'Згорнути' : 'Детальніше'}
             </button>
-            {expandedTerm === 'mtu' && (
-              <div className={`${styles.accordionContent} ${styles.open}`}>
+            {expandedTerms.includes('mtu') && (
+              <div 
+                className={`${styles.accordionContent} ${styles.open}`}
+              >
                 <div className={styles.termDetails}>
                   <p className={styles.termMainDefinition}>
                     MTU (Maximum Transmission Unit) визначає, скільки байт може «проскочити» за один раз.
@@ -541,10 +567,12 @@ function MikroTikGeneral() {
               className={styles.detailsButton}
               onClick={() => toggleTerm('ip')}
             >
-              📖 {expandedTerm === 'ip' ? 'Згорнути' : 'Детальніше'}
+              📖 {expandedTerms.includes('ip') ? 'Згорнути' : 'Детальніше'}
             </button>
-            {expandedTerm === 'ip' && (
-              <div className={`${styles.accordionContent} ${styles.open}`}>
+            {expandedTerms.includes('ip') && (
+              <div 
+                className={`${styles.accordionContent} ${styles.open}`}
+              >
                 <div className={styles.termDetails}>
                   <p className={styles.termMainDefinition}>
                     IP бувають приватні (LAN: 192.168.x.x, 10.x.x.x) і публічні (видимі в інтернеті).

@@ -4,6 +4,10 @@
   padding: 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: visible;
+  min-height: auto;
 }
 
 .title {
@@ -120,6 +124,11 @@
   border-radius: 15px;
   padding: 30px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: visible;
+  min-height: auto;
 }
 
 .guideTitle {
@@ -134,18 +143,29 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: visible;
 }
 
 .accordionItem {
   border: 2px solid #e9ecef;
   border-radius: 12px;
-  overflow: hidden;
+  overflow: visible;
   transition: all 0.3s ease;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
 }
 
 .accordionItem.active {
   border-color: #667eea;
   box-shadow: 0 4px 20px rgba(102, 126, 234, 0.2);
+  z-index: 10;
+  position: relative;
 }
 
 .accordionHeader {
@@ -187,9 +207,22 @@
 }
 
 .accordionItem.active .accordionContent {
-  padding: 25px;
-  max-height: none;
-  overflow: visible;
+  padding: 25px !important;
+  max-height: 2000px !important;
+  overflow: visible !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.accordionItem.active .accordionContent * {
+  max-width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .ruleSection {
@@ -198,6 +231,11 @@
   background: #f8f9fa;
   border-radius: 10px;
   border-left: 4px solid #28a745;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .ruleSection:last-child {
@@ -215,6 +253,11 @@
   list-style: none;
   padding: 0;
   margin: 0 0 15px 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .ruleList li {
@@ -222,6 +265,11 @@
   color: #495057;
   font-family: 'Courier New', monospace;
   font-size: 0.95rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .ruleDescription {
@@ -232,6 +280,11 @@
   background: #e8f4fd;
   border-radius: 8px;
   border-left: 3px solid #17a2b8;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .screenshotNote {
@@ -371,7 +424,19 @@
   }
   
   .accordionContent {
-    padding: 0.75rem;
+    padding: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  .resultList {
+    font-size: 0.8rem;
+  }
+  
+  .resultList li {
+    font-size: 0.8rem;
+    padding: 6px 0;
   }
   
   .stepList {
@@ -514,8 +579,44 @@
     font-size: 1.1rem;
   }
   
+  .accordionContent {
+    padding: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  .resultList {
+    font-size: 0.75rem;
+  }
+  
+  .resultList li {
+    font-size: 0.75rem;
+    padding: 4px 0;
+  }
+  
   .ruleSection {
-    padding: 15px;
+    padding: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .ruleSection h4 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+  
+  .ruleList {
+    margin-bottom: 8px;
+  }
+  
+  .ruleList li {
+    font-size: 0.8rem;
+    padding: 3px 0;
+  }
+  
+  .ruleDescription {
+    font-size: 0.75rem;
+    padding: 6px;
   }
 }
 
@@ -742,12 +843,39 @@
   }
   
   .accordionContent {
-    padding: 0.6rem;
+    padding: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
   
   .stepList {
     font-size: 0.75rem;
     padding-left: 0.8rem;
+  }
+  
+  .ruleSection {
+    padding: 6px;
+    margin-bottom: 10px;
+  }
+  
+  .ruleSection h4 {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+  }
+  
+  .ruleList {
+    margin-bottom: 6px;
+  }
+  
+  .ruleList li {
+    font-size: 0.7rem;
+    padding: 2px 0;
+  }
+  
+  .ruleDescription {
+    font-size: 0.65rem;
+    padding: 4px;
   }
   
   .screenshotNote {
@@ -829,6 +957,50 @@
   .commandCode code {
     font-size: 0.65rem;
     margin-bottom: 0.4rem;
+  }
+}
+
+/* Для дуже маленьких екранів (iPhone SE та подібні) */
+@media (max-width: 375px) {
+  .resultList {
+    font-size: 0.7rem;
+  }
+  
+  .resultList li {
+    font-size: 0.7rem;
+    padding: 3px 0;
+  }
+  
+  .ruleSection {
+    padding: 4px;
+    margin-bottom: 8px;
+  }
+  
+  .ruleSection h4 {
+    font-size: 0.8rem;
+    margin-bottom: 4px;
+  }
+  
+  .ruleList {
+    margin-bottom: 4px;
+  }
+  
+  .ruleList li {
+    font-size: 0.65rem;
+    padding: 1px 0;
+  }
+  
+  .ruleDescription {
+    font-size: 0.6rem;
+    padding: 3px;
+  }
+  
+  .accordionHeader {
+    padding: 0.4rem;
+  }
+  
+  .accordionTitle {
+    font-size: 0.75rem;
   }
 }
 

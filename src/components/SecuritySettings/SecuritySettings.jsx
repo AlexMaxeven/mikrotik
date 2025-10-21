@@ -13,14 +13,23 @@ import styles from './SecuritySettings.module.css'
 import securityImg from '../../assets/Security/Security.jpg'
 
 function SecuritySettings() {
-  const [openAccordion, setOpenAccordion] = useState(null)
+  const [openAccordions, setOpenAccordions] = useState([])
   const [isSticky, setIsSticky] = useState(false)
   const [selectedImage, setSelectedImage] = useState(null)
   const guideRef = useRef(null)
   const buttonRef = useRef(null)
 
   const toggleAccordion = (index) => {
-    setOpenAccordion(openAccordion === index ? null : index)
+    console.log('Toggle accordion:', index, 'Current:', openAccordions)
+    setOpenAccordions(prev => {
+      if (prev.includes(index)) {
+        // Якщо акордеон вже відкритий - закриваємо його
+        return prev.filter(item => item !== index)
+      } else {
+        // Якщо акордеон закритий - відкриваємо його (не закриваємо інші)
+        return [...prev, index]
+      }
+    })
   }
 
   const scrollToGuide = () => {
@@ -78,6 +87,11 @@ function SecuritySettings() {
 
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Додаємо useEffect для відстеження змін openAccordions
+  useEffect(() => {
+    console.log('openAccordions changed:', openAccordions)
+  }, [openAccordions])
 
   // Додаємо useEffect для відстеження змін selectedImage
   useEffect(() => {
@@ -139,7 +153,7 @@ function SecuritySettings() {
         
         <div className={styles.accordionContainer}>
           {/* INPUT Chain - Основні правила */}
-          <div className={`${styles.accordionItem} ${openAccordion === 0 ? styles.active : ''}`}>
+          <div className={`${styles.accordionItem} ${openAccordions.includes(0) ? styles.active : ''}`}>
             <div className={styles.accordionHeader} onClick={() => toggleAccordion(0)}>
               <h3 className={styles.accordionTitle}>1. INPUT Chain - Керування доступом до роутера</h3>
               <span className={styles.accordionIcon}>▼</span>
@@ -235,7 +249,7 @@ function SecuritySettings() {
           </div>
 
           {/* OUTPUT Chain */}
-          <div className={`${styles.accordionItem} ${openAccordion === 1 ? styles.active : ''}`}>
+          <div className={`${styles.accordionItem} ${openAccordions.includes(1) ? styles.active : ''}`}>
             <div className={styles.accordionHeader} onClick={() => toggleAccordion(1)}>
               <h3 className={styles.accordionTitle}>2. OUTPUT Chain - DNS запити роутера</h3>
               <span className={styles.accordionIcon}>▼</span>
@@ -257,21 +271,21 @@ function SecuritySettings() {
           </div>
 
           {/* Результат */}
-          <div className={`${styles.accordionItem} ${openAccordion === 2 ? styles.active : ''}`}>
+          <div className={`${styles.accordionItem} ${openAccordions.includes(2) ? styles.active : ''}`}>
             <div className={styles.accordionHeader} onClick={() => toggleAccordion(2)}>
               <h3 className={styles.accordionTitle}>✅ Результат налаштувань</h3>
               <span className={styles.accordionIcon}>▼</span>
             </div>
             <div className={styles.accordionContent}>
                              <div className={styles.resultSection}>
-                 <h4>Що отримуємо після налаштування:</h4>
+                 <h4>Результат:</h4>
                  <ul className={styles.resultList}>
-                   <li>✅ <strong>LAN-користувачі</strong> мають повний доступ до роутера</li>
-                   <li>✅ <strong>Весь трафік з інтернету</strong> відсікається, крім дозволених служб</li>
-                   <li>✅ <strong>Пінг із WAN</strong> блокується</li>
-                   <li>✅ <strong>Роутер сам може</strong> ходити в інтернет (DNS, апдейти)</li>
-                   <li>✅ <strong>Адмін доступ</strong> залишається тільки з локальної мережі</li>
-                   <li>✅ <strong>Безпека</strong> забезпечується принципом "за замовчуванням закрито"</li>
+                   <li>✅ LAN-користувачі мають доступ до роутера</li>
+                   <li>✅ Трафік з інтернету відсікається</li>
+                   <li>✅ Пінг із WAN блокується</li>
+                   <li>✅ Роутер може ходити в інтернет</li>
+                   <li>✅ Адмін доступ тільки з LAN</li>
+                   <li>✅ Безпека "за замовчуванням закрито"</li>
                  </ul>
                  
                                    <div className={styles.screenshotNote}>

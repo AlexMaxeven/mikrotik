@@ -12,13 +12,23 @@ import firewallNatImg from '../../assets/BasicSettingPicture/firewall_nat.jpg'
 import firewallNat2Img from '../../assets/BasicSettingPicture/firewall_nat2.jpg'
 
 function BasicSettings({ onImageClick }) {
-  const [openAccordion, setOpenAccordion] = useState(null)
+  const [openAccordions, setOpenAccordions] = useState([])
   const [isSticky, setIsSticky] = useState(false)
   const guideRef = useRef(null)
   const buttonRef = useRef(null)
 
   const toggleAccordion = (index) => {
-    setOpenAccordion(openAccordion === index ? null : index)
+    // Якщо натиснули на вже відкритий - закриваємо
+    // Якщо натиснули на закритий - відкриваємо (не закриваємо інші)
+    setOpenAccordions(prev => {
+      if (prev.includes(index)) {
+        // Видаляємо з масиву (закриваємо)
+        return prev.filter(item => item !== index)
+      } else {
+        // Додаємо до масиву (відкриваємо)
+        return [...prev, index]
+      }
+    })
   }
 
   const scrollToGuide = () => {
@@ -162,7 +172,7 @@ function BasicSettings({ onImageClick }) {
         
         <div className={styles.accordionContainer}>
           {/* Етап 1 */}
-          <div className={`${styles.accordionItem} ${openAccordion === 0 ? styles.active : ''}`}>
+          <div className={`${styles.accordionItem} ${openAccordions.includes(0) ? styles.active : ''}`}>
             <div className={styles.accordionHeader} onClick={() => toggleAccordion(0)}>
               <h3 className={styles.accordionTitle}>Етап 1. Підключення до пристрою</h3>
               <span className={styles.accordionIcon}>▼</span>
@@ -186,7 +196,7 @@ function BasicSettings({ onImageClick }) {
           </div>
 
           {/* Етап 2 */}
-          <div className={`${styles.accordionItem} ${openAccordion === 1 ? styles.active : ''}`}>
+          <div className={`${styles.accordionItem} ${openAccordions.includes(1) ? styles.active : ''}`}>
             <div className={styles.accordionHeader} onClick={() => toggleAccordion(1)}>
               <h3 className={styles.accordionTitle}>Етап 2. Створення bridge1</h3>
               <span className={styles.accordionIcon}>▼</span>
@@ -210,7 +220,7 @@ function BasicSettings({ onImageClick }) {
           </div>
 
           {/* Етап 3 */}
-          <div className={`${styles.accordionItem} ${openAccordion === 2 ? styles.active : ''}`}>
+          <div className={`${styles.accordionItem} ${openAccordions.includes(2) ? styles.active : ''}`}>
             <div className={styles.accordionHeader} onClick={() => toggleAccordion(2)}>
               <h3 className={styles.accordionTitle}>Етап 3. Додавання портів у bridge для ether2 по ether5</h3>
               <span className={styles.accordionIcon}>▼</span>
@@ -237,7 +247,7 @@ function BasicSettings({ onImageClick }) {
           </div>
 
           {/* Етап 4 */}
-          <div className={`${styles.accordionItem} ${openAccordion === 3 ? styles.active : ''}`}>
+          <div className={`${styles.accordionItem} ${openAccordions.includes(3) ? styles.active : ''}`}>
             <div className={styles.accordionHeader} onClick={() => toggleAccordion(3)}>
               <h3 className={styles.accordionTitle}>Етап 4. Додавання DHCP Client</h3>
               <span className={styles.accordionIcon}>▼</span>
@@ -265,7 +275,7 @@ function BasicSettings({ onImageClick }) {
           </div>
 
           {/* Етап 5 */}
-          <div className={`${styles.accordionItem} ${openAccordion === 4 ? styles.active : ''}`}>
+          <div className={`${styles.accordionItem} ${openAccordions.includes(4) ? styles.active : ''}`}>
             <div className={styles.accordionHeader} onClick={() => toggleAccordion(4)}>
               <h3 className={styles.accordionTitle}>Етап 5. Додати bridge1 в Addresses</h3>
               <span className={styles.accordionIcon}>▼</span>
@@ -290,7 +300,7 @@ function BasicSettings({ onImageClick }) {
           </div>
 
           {/* Етап 6 */}
-          <div className={`${styles.accordionItem} ${openAccordion === 5 ? styles.active : ''}`}>
+          <div className={`${styles.accordionItem} ${openAccordions.includes(5) ? styles.active : ''}`}>
             <div className={styles.accordionHeader} onClick={() => toggleAccordion(5)}>
               <h3 className={styles.accordionTitle}>Етап 6. DHCP Server - Setup - bridge1</h3>
               <span className={styles.accordionIcon}>▼</span>
@@ -317,7 +327,7 @@ function BasicSettings({ onImageClick }) {
           </div>
 
           {/* Етап 7 */}
-          <div className={`${styles.accordionItem} ${openAccordion === 6 ? styles.active : ''}`}>
+          <div className={`${styles.accordionItem} ${openAccordions.includes(6) ? styles.active : ''}`}>
             <div className={styles.accordionHeader} onClick={() => toggleAccordion(6)}>
               <h3 className={styles.accordionTitle}>Етап 7. Firewall - NAT</h3>
               <span className={styles.accordionIcon}>▼</span>
@@ -351,7 +361,7 @@ function BasicSettings({ onImageClick }) {
           </div>
 
           {/* Результат */}
-          <div className={`${styles.accordionItem} ${openAccordion === 7 ? styles.active : ''}`}>
+          <div className={`${styles.accordionItem} ${openAccordions.includes(7) ? styles.active : ''}`}>
             <div className={styles.accordionHeader} onClick={() => toggleAccordion(7)}>
               <h3 className={styles.accordionTitle}>✅ Результат</h3>
               <span className={styles.accordionIcon}>▼</span>
