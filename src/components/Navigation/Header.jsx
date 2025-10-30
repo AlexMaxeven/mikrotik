@@ -91,16 +91,6 @@ const Header = ({ currentPage, onPageChange }) => {
       {/* Мобільне меню */}
       <div className={`${styles.mobileMenuOverlay} ${isMobileMenuOpen ? styles.open : ''}`} onClick={closeMobileMenu}>
           <div className={styles.mobileMenu}>
-            <button 
-              className={styles.mobileMenuCloseButton}
-              onClick={() => {
-                setIsMobileMenuOpen(false)
-                document.body.style.overflow = 'auto'
-              }}
-              aria-label="Close mobile menu"
-            >
-              ×
-            </button>
             <div className={styles.mobileMenuContent}>
               <button
                 className={`${styles.mobileNavLink} ${currentPage === 'general' ? styles.active : ''}`}
