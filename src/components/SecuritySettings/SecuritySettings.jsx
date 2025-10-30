@@ -18,6 +18,8 @@ function SecuritySettings() {
   const [selectedImage, setSelectedImage] = useState(null)
   const guideRef = useRef(null)
   const buttonRef = useRef(null)
+  const contentRefs = useRef([])
+  const [reflowTick, setReflowTick] = useState(0)
 
   const toggleAccordion = (index) => {
     setOpenAccordions(prev => {
@@ -29,6 +31,19 @@ function SecuritySettings() {
         return [...prev, index]
       }
     })
+  }
+
+  // Перераховуємо висоту відкритих секцій при ресайзі/зміні контенту
+  useEffect(() => {
+    const onResize = () => setReflowTick(t => t + 1)
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
+
+  const getMaxHeight = (index) => {
+    if (!openAccordions.includes(index)) return 0
+    const el = contentRefs.current[index]
+    return el ? el.scrollHeight : 0
   }
 
   const scrollToGuide = () => {
@@ -142,7 +157,12 @@ function SecuritySettings() {
               <h3 className={styles.accordionTitle}>1. INPUT Chain - Керування доступом до роутера</h3>
               <span className={styles.accordionIcon}>▼</span>
             </div>
-            <div className={styles.accordionContent}>
+            <div
+              className={styles.accordionContent}
+              ref={(el) => (contentRefs.current[0] = el)}
+              style={{ maxHeight: getMaxHeight(0) }}
+            >
+              <div className={styles.accordionInner}>
               <div className={styles.ruleSection}>
                 <h4>1.1. Дозволити існуючі з'єднання</h4>
                 <ul className={styles.ruleList}>
@@ -229,6 +249,7 @@ function SecuritySettings() {
                    👉 Якщо щось не підпало під правила вище — блокується.
                  </p>
               </div>
+              </div>
             </div>
           </div>
 
@@ -238,7 +259,12 @@ function SecuritySettings() {
               <h3 className={styles.accordionTitle}>2. OUTPUT Chain - DNS запити роутера</h3>
               <span className={styles.accordionIcon}>▼</span>
             </div>
-            <div className={styles.accordionContent}>
+            <div
+              className={styles.accordionContent}
+              ref={(el) => (contentRefs.current[1] = el)}
+              style={{ maxHeight: getMaxHeight(1) }}
+            >
+              <div className={styles.accordionInner}>
               <div className={styles.ruleSection}>
                 <h4>2.1. DNS-запити</h4>
                 <ul className={styles.ruleList}>
@@ -251,6 +277,7 @@ function SecuritySettings() {
                    👉 Дозволяє роутеру запитувати DNS-сервери (наприклад, Google 8.8.8.8).
                  </p>
               </div>
+              </div>
             </div>
           </div>
 
@@ -260,7 +287,12 @@ function SecuritySettings() {
               <h3 className={styles.accordionTitle}>✅ Результат налаштувань</h3>
               <span className={styles.accordionIcon}>▼</span>
             </div>
-            <div className={styles.accordionContent}>
+            <div
+              className={styles.accordionContent}
+              ref={(el) => (contentRefs.current[2] = el)}
+              style={{ maxHeight: getMaxHeight(2) }}
+            >
+              <div className={styles.accordionInner}>
                              <div className={styles.resultSection}>
                  <h4>Результат:</h4>
                  <ul className={styles.resultList}>
@@ -279,7 +311,8 @@ function SecuritySettings() {
                       className={styles.screenshot} 
                       onClick={(e) => openImageModal(securityImg, "Результат налаштувань захисту", e)}
                     />
-                  </div>
+                </div>
+              </div>
                </div>
             </div>
           </div>

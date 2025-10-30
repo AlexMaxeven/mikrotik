@@ -209,14 +209,14 @@
 }
 
 .accordionContent {
-  padding: 0;
+  padding: 0; /* keep zero to avoid jump */
   max-height: 0;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: max-height 0.3s ease; /* avoid padding animation */
 }
 
 .accordionItem.active .accordionContent {
-  padding: 25px !important;
+  padding: 0 !important; /* no extra padding on open */
   max-height: 2000px !important;
   overflow: visible !important;
   word-wrap: break-word;
@@ -225,6 +225,11 @@
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+}
+
+/* Постійний невеликий внутрішній відступ для контенту акордеона */
+.accordionInner {
+  padding: 12px 16px;
 }
 
 .accordionItem.active .accordionContent * {
