@@ -4,10 +4,10 @@ import './App.css'
 // Імпорт компонентів з нової структури папок
 import MikroTikGeneral from './components/MikroTikGeneral/MikroTikGeneral'
 import BasicSettings from './components/BasicSettings/BasicSettings'
-import AdditionalSettings1 from './components/AdditionalSettings1/AdditionalSettings1'
 import Backup from './components/Backup/Backup'
 import SecuritySettings from './components/SecuritySettings/SecuritySettings'
 import Scripts from './components/Scripts/Scripts'
+import L2tpEoip from './components/L2tpEoip/L2tpEoip'
 
 // Імпорт нових компонентів
 import Layout from './components/Layout/Layout'
@@ -35,20 +35,20 @@ function App() {
     switch (currentPage) {
       case 'general':
         return <MikroTikGeneral />
-             case 'basic':
-               return <BasicSettings onImageClick={openGlobalImageModal} />
-      case 'additional1':
-        return <AdditionalSettings1 />
-      case 'backup':
-        return <Backup onImageClick={openGlobalImageModal} />
-      case 'security':
-        return <SecuritySettings />
-      case 'scripts':
-        return <Scripts />
-      default:
-        return <MikroTikGeneral />
+          case 'basic':
+            return <BasicSettings onImageClick={openGlobalImageModal} />
+          case 'backup':
+            return <Backup onImageClick={openGlobalImageModal} />
+          case 'security':
+            return <SecuritySettings />
+          case 'scripts':
+            return <Scripts />
+          case 'l2tp_eoip':
+            return <L2tpEoip />
+          default:
+            return <MikroTikGeneral />
+      }
     }
-  }
 
   return (
     <div className="app">

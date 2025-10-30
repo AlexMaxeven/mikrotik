@@ -584,6 +584,14 @@
   .title {
     font-size: 1.8rem;
   }
+
+  .guideTitle {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
   
   .accordionHeader {
     padding: 15px;
@@ -896,6 +904,8 @@
     padding: 0.5rem;
     font-size: 0.75rem;
   }
+
+
   
   .modalContent {
     max-width: 99%;

@@ -35,7 +35,12 @@ const Header = ({ currentPage, onPageChange }) => {
       {/* Десктопна навігація */}
       <nav className={styles.navigation}>
         <div className={styles.navBrand}>
-          <h2>🖥️ MikroTik Довідник</h2>
+          <h2
+            className={styles.brandTitle}
+            onClick={() => handlePageChange('general')}
+          >
+            🖥️ MikroTik
+          </h2>
         </div>
         <div className={styles.navLinks}>
           <button
@@ -49,12 +54,6 @@ const Header = ({ currentPage, onPageChange }) => {
             onClick={() => handlePageChange('basic')}
           >
             ⚙️ Базові налаштування
-          </button>
-          <button
-            className={`${styles.navLink} ${currentPage === 'additional1' ? styles.active : ''}`}
-            onClick={() => handlePageChange('additional1')}
-          >
-            🔧 Додаткові налаштування
           </button>
           <button
             className={`${styles.navLink} ${currentPage === 'backup' ? styles.active : ''}`}
@@ -73,6 +72,12 @@ const Header = ({ currentPage, onPageChange }) => {
             onClick={() => handlePageChange('scripts')}
           >
             📜 Скрипти
+          </button>
+          <button
+            className={`${styles.navLink} ${currentPage === 'l2tp_eoip' ? styles.active : ''}`}
+            onClick={() => handlePageChange('l2tp_eoip')}
+          >
+            🔗 L2TP + EOIP
           </button>
         </div>
       </nav>
@@ -105,12 +110,6 @@ const Header = ({ currentPage, onPageChange }) => {
                 ⚙️ Базові налаштування
               </button>
               <button
-                className={`${styles.mobileNavLink} ${currentPage === 'additional1' ? styles.active : ''}`}
-                onClick={() => handlePageChange('additional1')}
-              >
-                🔧 Додаткові налаштування
-              </button>
-              <button
                 className={`${styles.mobileNavLink} ${currentPage === 'backup' ? styles.active : ''}`}
                 onClick={() => handlePageChange('backup')}
               >
@@ -127,6 +126,12 @@ const Header = ({ currentPage, onPageChange }) => {
                 onClick={() => handlePageChange('scripts')}
               >
                 📜 Скрипти
+              </button>
+              <button
+                className={`${styles.mobileNavLink} ${currentPage === 'l2tp_eoip' ? styles.active : ''}`}
+                onClick={() => handlePageChange('l2tp_eoip')}
+              >
+                🔗 L2TP + EOIP
               </button>
             </div>
           </div>
