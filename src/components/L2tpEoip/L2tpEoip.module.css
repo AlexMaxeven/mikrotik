@@ -10,7 +10,7 @@
 .title {
   color: #333;
   margin: 0 0 1rem 0;
-  font-size: 2rem;
+  font-size: 2.5rem;
   text-align: center;
   background: linear-gradient(135deg, #667eea, #764ba2);
   -webkit-background-clip: text;
@@ -19,33 +19,236 @@
 }
 
 .subtitle {
-  margin: 0 0 1.2rem 0;
+  margin: 0 0 2.5rem 0;
   color: #5a6c7d;
   text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
-.placeholderCard {
+.blocksContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.block {
   background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  border: 2px solid rgba(102, 126, 234, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.block:hover {
+  border-color: rgba(102, 126, 234, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.blockOpen {
+  border-color: var(--block-color);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+}
+
+.blockHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+}
+
+.blockHeader:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(102, 126, 234, 0.05));
+}
+
+.blockHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex: 1;
+}
+
+.blockIcon {
+  font-size: 2.5rem;
+  line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.blockTitleWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.blockTitle {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.3;
+}
+
+.blockSubtitle {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #666;
+  font-weight: 400;
+}
+
+.blockToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(102, 126, 234, 0.1);
+  transition: all 0.3s ease;
+}
+
+.blockHeader:hover .blockToggle {
+  background: rgba(102, 126, 234, 0.2);
+  transform: scale(1.1);
+}
+
+.toggleIcon {
+  font-size: 0.8rem;
+  color: #667eea;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.toggleIconOpen {
+  transform: rotate(180deg);
+}
+
+.blockContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  padding: 0 1.5rem;
+}
+
+.blockContentOpen {
+  max-height: 1000px;
+  padding: 1.5rem;
+}
+
+.blockPlaceholder {
+  background: rgba(102, 126, 234, 0.05);
   border-radius: 12px;
+  padding: 2rem;
+  border: 1px dashed rgba(102, 126, 234, 0.3);
+}
+
+.placeholderText {
+  text-align: center;
+  color: #667eea;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0 0 1.5rem 0;
+}
+
+.placeholderSections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.placeholderSection {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
   border: 1px solid rgba(102, 126, 234, 0.15);
-  padding: 1.2rem;
-  color: #495057;
+  transition: all 0.2s ease;
+}
+
+.placeholderSection:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(102, 126, 234, 0.3);
+  transform: translateY(-2px);
+}
+
+.placeholderSectionIcon {
+  font-size: 1.5rem;
+}
+
+.infoNote {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  border-left: 4px solid #667eea;
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  margin-top: 2rem;
+}
+
+.infoNote p {
+  margin: 0;
+  color: #5a6c7d;
+  line-height: 1.6;
 }
 
 @media (max-width: 768px) {
   .page {
-    padding: 0.75rem;
+    padding: 1rem;
     border-radius: 15px;
   }
 
   .title {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .blockHeader {
+    padding: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .blockIcon {
+    font-size: 2rem;
+  }
+
+  .blockTitle {
+    font-size: 1.2rem;
+  }
+
+  .blockSubtitle {
+    font-size: 0.85rem;
+  }
+
+  .blockContentOpen {
+    padding: 1rem;
+  }
+
+  .blockPlaceholder {
+    padding: 1.5rem;
+  }
+
+  .placeholderSections {
+    grid-template-columns: 1fr;
   }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { 
+    opacity: 0; 
+    transform: translateY(10px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
 }
-
-
