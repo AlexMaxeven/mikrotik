@@ -44,7 +44,7 @@ function App() {
           case 'scripts':
             return <Scripts />
           case 'l2tp_eoip':
-            return <L2tpEoip />
+            return <L2tpEoip onImageClick={openGlobalImageModal} />
           default:
             return <MikroTikGeneral />
       }

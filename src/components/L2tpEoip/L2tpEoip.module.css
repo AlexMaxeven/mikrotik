@@ -136,8 +136,137 @@
 }
 
 .blockContentOpen {
-  max-height: 1000px;
+  max-height: 2000px;
   padding: 1.5rem;
+}
+
+.blockRealContent {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.contentTitle {
+  color: #333;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+}
+
+.instructionSection {
+  margin-bottom: 1.5rem;
+}
+
+.instructionText {
+  color: #333;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.instructionText strong {
+  color: #667eea;
+  font-weight: 600;
+}
+
+.paramsList {
+  background: rgba(102, 126, 234, 0.05);
+  border-radius: 10px;
+  padding: 1.2rem 1.5rem;
+  margin: 1rem 0;
+  list-style: none;
+  border-left: 4px solid #667eea;
+}
+
+.paramsList li {
+  color: #333;
+  line-height: 1.8;
+  margin-bottom: 0.6rem;
+  padding-left: 0.5rem;
+}
+
+.paramsList li:last-child {
+  margin-bottom: 0;
+}
+
+.paramsList strong {
+  color: #667eea;
+  font-weight: 600;
+  margin-right: 0.3rem;
+}
+
+.screenshotNote {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(102, 126, 234, 0.05);
+  border-radius: 10px;
+  border: 1px dashed rgba(102, 126, 234, 0.3);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 1.5rem;
+}
+
+.screenshot {
+  flex: 1;
+  max-width: calc(33.333% - 0.67rem);
+  height: auto;
+  max-height: 500px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  object-fit: contain;
+  object-position: top;
+  align-self: flex-start;
+}
+
+.firstImageWrapper {
+  flex: 1;
+  max-width: calc(33.333% - 0.67rem);
+  height: 500px;
+  overflow: hidden;
+  border-radius: 8px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  position: relative;
+}
+
+.firstImageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  margin-top: 0;
+  display: block;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.firstImageWrapper:hover img {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.25);
+}
+
+.screenshotNote > .screenshot {
+  height: 500px;
+  width: 100%;
+  object-fit: contain;
+  object-position: top center;
+  display: block;
+}
+
+.screenshot:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.25);
 }
 
 .blockPlaceholder {
@@ -239,6 +368,40 @@
 
   .placeholderSections {
     grid-template-columns: 1fr;
+  }
+
+  .blockRealContent {
+    padding: 1rem;
+  }
+
+  .contentTitle {
+    font-size: 1.1rem;
+  }
+
+  .instructionText {
+    font-size: 0.95rem;
+  }
+
+  .paramsList {
+    padding: 1rem;
+  }
+
+  .screenshotNote {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .screenshot {
+    flex: 1 1 calc(50% - 0.4rem);
+    max-width: calc(50% - 0.4rem);
+    min-width: 150px;
+  }
+  
+  @media (max-width: 480px) {
+    .screenshot {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
   }
 }
 
