@@ -93,27 +93,55 @@ function L2tpEoip({ onImageClick }) {
             </p>
           </div>
 
-          <div className={styles.screenshotNote}>
-            <div className={styles.firstImageWrapper}>
-              <img 
-                src={l2tp0Img} 
-                alt="L2TP Server налаштування - крок 0" 
-                className={styles.screenshot} 
-                onClick={() => onImageClick && onImageClick(l2tp0Img, "L2TP Server налаштування - крок 0")}
-              />
+          <div className={styles.screenshotGallery}>
+            <div 
+              className={styles.galleryItem}
+              onClick={() => onImageClick && onImageClick(l2tp0Img, "L2TP Server налаштування - крок 0")}
+            >
+              <div className={styles.galleryThumbnail}>
+                <img 
+                  src={l2tp0Img} 
+                  alt="L2TP Server налаштування - крок 0" 
+                  className={styles.galleryImage}
+                />
+                <div className={styles.galleryOverlay}>
+                  <span className={styles.galleryIcon}>🔍</span>
+                  <span className={styles.galleryText}>Натисніть для перегляду</span>
+                </div>
+              </div>
             </div>
-            <img 
-              src={l2tp01Img} 
-              alt="L2TP Server налаштування - крок 01" 
-              className={styles.screenshot} 
+            <div 
+              className={styles.galleryItem}
               onClick={() => onImageClick && onImageClick(l2tp01Img, "L2TP Server налаштування - крок 01")}
-            />
-            <img 
-              src={l2tp1Img} 
-              alt="L2TP Server налаштування - крок 1" 
-              className={styles.screenshot} 
+            >
+              <div className={styles.galleryThumbnail}>
+                <img 
+                  src={l2tp01Img} 
+                  alt="L2TP Server налаштування - крок 01" 
+                  className={styles.galleryImage}
+                />
+                <div className={styles.galleryOverlay}>
+                  <span className={styles.galleryIcon}>🔍</span>
+                  <span className={styles.galleryText}>Натисніть для перегляду</span>
+                </div>
+              </div>
+            </div>
+            <div 
+              className={styles.galleryItem}
               onClick={() => onImageClick && onImageClick(l2tp1Img, "L2TP Server налаштування - крок 1")}
-            />
+            >
+              <div className={styles.galleryThumbnail}>
+                <img 
+                  src={l2tp1Img} 
+                  alt="L2TP Server налаштування - крок 1" 
+                  className={styles.galleryImage}
+                />
+                <div className={styles.galleryOverlay}>
+                  <span className={styles.galleryIcon}>🔍</span>
+                  <span className={styles.galleryText}>Натисніть для перегляду</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )
