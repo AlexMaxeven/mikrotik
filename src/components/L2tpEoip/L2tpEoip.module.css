@@ -155,7 +155,23 @@
 }
 
 .instructionSection {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.instructionSection:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.etapTitle {
+  color: #667eea;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(102, 126, 234, 0.2);
 }
 
 .instructionText {
@@ -196,9 +212,35 @@
   margin-right: 0.3rem;
 }
 
+.stepList {
+  background: rgba(102, 126, 234, 0.05);
+  border-radius: 10px;
+  padding: 1.2rem 1.5rem;
+  margin: 1rem 0;
+  list-style: decimal;
+  border-left: 4px solid #764ba2;
+  padding-left: 2rem;
+}
+
+.stepList li {
+  color: #333;
+  line-height: 1.8;
+  margin-bottom: 0.8rem;
+  padding-left: 0.5rem;
+}
+
+.stepList li:last-child {
+  margin-bottom: 0;
+}
+
+.stepList strong {
+  color: #764ba2;
+  font-weight: 600;
+}
+
 .screenshotGallery {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
   margin-top: 1.5rem;
   padding: 1rem;
