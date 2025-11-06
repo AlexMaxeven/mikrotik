@@ -135,9 +135,21 @@
   padding: 0 1.5rem;
 }
 
+@media (max-width: 768px) {
+  .blockContent {
+    transition: padding 0.4s ease;
+  }
+  
+  .blockContentOpen {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+}
+
 .blockContentOpen {
-  max-height: 2000px;
+  max-height: none;
   padding: 1.5rem;
+  overflow: visible;
 }
 
 .blockRealContent {
@@ -421,6 +433,8 @@
 
   .blockContentOpen {
     padding: 1rem;
+    max-height: none;
+    overflow: visible;
   }
 
   .blockPlaceholder {
@@ -451,10 +465,13 @@
     grid-template-columns: 1fr;
     gap: 1rem;
     padding: 0.8rem;
+    overflow: visible;
+    max-height: none;
   }
 
   .galleryThumbnail {
     height: 250px;
+    min-height: 250px;
   }
 
   .galleryIcon {
