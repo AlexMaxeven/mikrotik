@@ -44,18 +44,101 @@
   font-size: 1.6rem;
   font-weight: 800;
   letter-spacing: 0.2px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
   cursor: pointer;
   user-select: none;
   transition: transform 0.2s ease, opacity 0.2s ease;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
 }
 
 .brandTitle:hover {
   transform: translateY(-1px);
   opacity: 0.95;
+}
+
+.brandTitleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  position: relative;
+}
+
+.brandTitleWrapper {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+.brandTitleWrapper::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.brandTitle:hover .brandTitleWrapper::after {
+  width: 110%;
+}
+
+.rotatingText {
+  display: block;
+  text-align: center;
+  position: relative;
+  font-size: 1.2rem;
+  font-weight: 600;
+  min-height: 1.5rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  will-change: opacity, transform;
+  opacity: 1;
+}
+
+.rotatingText.fadeOut {
+  animation: fadeOutSmooth 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  pointer-events: none;
+}
+
+.rotatingText.fadeIn {
+  opacity: 0;
+  animation: fadeInSmooth 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes fadeOutSmooth {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes fadeInSmooth {
+  0% {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .navLinks {

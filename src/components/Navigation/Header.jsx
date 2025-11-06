@@ -1,8 +1,30 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import styles from './Header.module.css'
 
 const Header = ({ currentPage, onPageChange }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [rotatingText, setRotatingText] = useState(0)
+  const [isFadingOut, setIsFadingOut] = useState(false)
+  const [isFadingIn, setIsFadingIn] = useState(false)
+  
+  const rotatingWords = ['RouterOS', 'L2TP', 'EOIP', 'IPsec', 'Firewall', 'NAT']
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsFadingOut(true)
+      setIsFadingIn(false)
+      setTimeout(() => {
+        setRotatingText((prev) => (prev + 1) % rotatingWords.length)
+        setIsFadingOut(false)
+        setIsFadingIn(true)
+        setTimeout(() => {
+          setIsFadingIn(false)
+        }, 1000)
+      }, 800)
+    }, 10000)
+    
+    return () => clearInterval(interval)
+  }, [rotatingWords.length])
 
   const handlePageChange = (page) => {
     onPageChange(page)
@@ -39,7 +61,17 @@ const Header = ({ currentPage, onPageChange }) => {
             className={styles.brandTitle}
             onClick={() => handlePageChange('general')}
           >
-            🖥️ MikroTik
+            <div className={styles.brandTitleContainer}>
+              <span className={styles.brandTitleWrapper}>
+                🖥️ MikroTik
+              </span>
+              <span 
+                className={`${styles.rotatingText} ${isFadingOut ? styles.fadeOut : ''} ${isFadingIn ? styles.fadeIn : ''}`}
+                key={rotatingText}
+              >
+                {rotatingWords[rotatingText]}
+              </span>
+            </div>
           </h2>
         </div>
         <div className={styles.navLinks}>
