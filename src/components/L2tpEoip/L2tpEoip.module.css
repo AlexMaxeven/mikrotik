@@ -406,11 +406,11 @@
   }
 
   .title {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
 
   .subtitle {
-    font-size: 1rem;
+    font-size: 0.85rem;
     margin-bottom: 1.5rem;
   }
 
@@ -420,15 +420,15 @@
   }
 
   .blockIcon {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .blockTitle {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .blockSubtitle {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
   }
 
   .blockContentOpen {
@@ -450,15 +450,38 @@
   }
 
   .contentTitle {
-    font-size: 1.1rem;
-  }
-
-  .instructionText {
     font-size: 0.95rem;
   }
 
+  .etapTitle {
+    font-size: 0.9rem;
+  }
+
+  .instructionText {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
   .paramsList {
-    padding: 1rem;
+    padding: 0.8rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .paramsList li {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+  }
+
+  .stepList {
+    padding: 0.8rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .stepList li {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 0.6rem;
   }
 
   .screenshotGallery {
@@ -483,6 +506,59 @@
   }
   
   @media (max-width: 480px) {
+    .title {
+      font-size: 1.3rem;
+    }
+
+    .subtitle {
+      font-size: 0.75rem;
+    }
+
+    .blockIcon {
+      font-size: 1.5rem;
+    }
+
+    .blockTitle {
+      font-size: 0.9rem;
+    }
+
+    .blockSubtitle {
+      font-size: 0.7rem;
+    }
+
+    .contentTitle {
+      font-size: 0.85rem;
+    }
+
+    .etapTitle {
+      font-size: 0.8rem;
+    }
+
+    .instructionText {
+      font-size: 0.8rem;
+      line-height: 1.5;
+    }
+
+    .paramsList {
+      padding: 0.7rem 0.9rem;
+      font-size: 0.8rem;
+    }
+
+    .paramsList li {
+      font-size: 0.8rem;
+      line-height: 1.5;
+    }
+
+    .stepList {
+      padding: 0.7rem 0.9rem;
+      font-size: 0.8rem;
+    }
+
+    .stepList li {
+      font-size: 0.8rem;
+      line-height: 1.5;
+    }
+
     .galleryThumbnail {
       height: 200px;
     }

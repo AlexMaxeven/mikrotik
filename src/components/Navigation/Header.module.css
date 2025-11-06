@@ -109,6 +109,17 @@
   opacity: 1;
 }
 
+.currentPageText {
+  display: block;
+  text-align: center;
+  position: relative;
+  font-size: 0.9rem;
+  font-weight: 500;
+  min-height: 1.5rem;
+  color: #667eea;
+  opacity: 0.85;
+}
+
 .rotatingText.fadeOut {
   animation: fadeOutSmooth 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   pointer-events: none;
@@ -383,6 +394,7 @@
   .navigation {
     padding: 0.8rem 1rem;
     justify-content: center;
+    position: sticky;
   }
 
   .navBrand {
@@ -393,14 +405,33 @@
     font-size: 1.2rem;
   }
 
+  .brandTitleWrapper {
+    font-size: 1.1rem;
+  }
+
+  .currentPageText {
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-top: 0.2rem;
+  }
+
   .navLinks {
     display: none;
   }
 
   .burgerMenu {
     display: flex;
-    position: fixed;
+    position: absolute;
     right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+  }
+
+  .burgerLine {
+    height: 3.5px;
+    margin: 3px 0;
   }
 
   .mobileMenuOverlay {
@@ -433,21 +464,34 @@
   .navigation {
     padding: 0.6rem 0.8rem;
     justify-content: center;
+    position: sticky;
   }
 
   .navBrand h2 {
     font-size: 1rem;
   }
 
+  .brandTitleWrapper {
+    font-size: 0.95rem;
+  }
+
+  .currentPageText {
+    font-size: 0.65rem;
+    font-weight: 500;
+    margin-top: 0.15rem;
+  }
+
   .burgerMenu {
     right: 0.8rem;
-    width: 25px;
-    height: 25px;
+    width: 32px;
+    height: 32px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .burgerLine {
-    height: 2px;
-    margin: 1.5px 0;
+    height: 3px;
+    margin: 2.5px 0;
   }
 
   .mobileMenuOverlay {

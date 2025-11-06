@@ -6,10 +6,35 @@ const Header = ({ currentPage, onPageChange }) => {
   const [rotatingText, setRotatingText] = useState(0)
   const [isFadingOut, setIsFadingOut] = useState(false)
   const [isFadingIn, setIsFadingIn] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
   
   const rotatingWords = ['RouterOS', 'L2TP', 'EOIP', 'IPsec', 'Firewall', 'NAT']
   
+  const pageNames = {
+    'general': 'Загальні положення',
+    'basic': 'Базові налаштування',
+    'backup': 'Резервне підключення',
+    'security': 'Налаштування захисту',
+    'scripts': 'Скрипти',
+    'l2tp_eoip': 'L2TP + EOIP'
+  }
+  
+  // Визначаємо мобільну версію
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+    
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+  
+  // Ротація тексту тільки на десктопі
+  useEffect(() => {
+    if (isMobile) return
+    
     const interval = setInterval(() => {
       setIsFadingOut(true)
       setIsFadingIn(false)
@@ -24,7 +49,7 @@ const Header = ({ currentPage, onPageChange }) => {
     }, 10000)
     
     return () => clearInterval(interval)
-  }, [rotatingWords.length])
+  }, [rotatingWords.length, isMobile])
 
   const handlePageChange = (page) => {
     onPageChange(page)
@@ -65,12 +90,18 @@ const Header = ({ currentPage, onPageChange }) => {
               <span className={styles.brandTitleWrapper}>
                 🖥️ MikroTik
               </span>
-              <span 
-                className={`${styles.rotatingText} ${isFadingOut ? styles.fadeOut : ''} ${isFadingIn ? styles.fadeIn : ''}`}
-                key={rotatingText}
-              >
-                {rotatingWords[rotatingText]}
-              </span>
+              {isMobile ? (
+                <span className={styles.currentPageText}>
+                  {pageNames[currentPage] || 'Загальні положення'}
+                </span>
+              ) : (
+                <span 
+                  className={`${styles.rotatingText} ${isFadingOut ? styles.fadeOut : ''} ${isFadingIn ? styles.fadeIn : ''}`}
+                  key={rotatingText}
+                >
+                  {rotatingWords[rotatingText]}
+                </span>
+              )}
             </div>
           </h2>
         </div>
@@ -112,18 +143,18 @@ const Header = ({ currentPage, onPageChange }) => {
             🔗 L2TP + EOIP
           </button>
         </div>
+        
+        {/* Бургер меню */}
+        <button
+          className={styles.burgerMenu}
+          onClick={toggleMobileMenu}
+          aria-label="Toggle mobile menu"
+        >
+          <div className={`${styles.burgerLine} ${isMobileMenuOpen ? styles.open : ''}`}></div>
+          <div className={`${styles.burgerLine} ${isMobileMenuOpen ? styles.open : ''}`}></div>
+          <div className={`${styles.burgerLine} ${isMobileMenuOpen ? styles.open : ''}`}></div>
+        </button>
       </nav>
-
-      {/* Бургер меню */}
-      <button
-        className={styles.burgerMenu}
-        onClick={toggleMobileMenu}
-        aria-label="Toggle mobile menu"
-      >
-        <div className={`${styles.burgerLine} ${isMobileMenuOpen ? styles.open : ''}`}></div>
-        <div className={`${styles.burgerLine} ${isMobileMenuOpen ? styles.open : ''}`}></div>
-        <div className={`${styles.burgerLine} ${isMobileMenuOpen ? styles.open : ''}`}></div>
-      </button>
 
       {/* Мобільне меню */}
       <div className={`${styles.mobileMenuOverlay} ${isMobileMenuOpen ? styles.open : ''}`} onClick={closeMobileMenu}>
