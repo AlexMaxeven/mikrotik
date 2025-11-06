@@ -449,6 +449,41 @@
   .accordionItem.active .accordionContent {
     padding: 0.8rem;
   }
+
+  .settingsCategory {
+    padding: 1rem;
+  }
+
+  .categoryTitle {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .settingsList {
+    gap: 1rem;
+  }
+
+  .settingItem {
+    padding: 0.8rem;
+    gap: 0.8rem;
+  }
+
+  .settingIcon {
+    font-size: 1.5rem;
+  }
+
+  .settingContent strong {
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .settingContent p {
+    font-size: 0.85rem;
+  }
+
+  .detailedGuide {
+    padding: 1rem;
+  }
   
   .stepList {
     font-size: 0.8rem;
@@ -543,6 +578,41 @@
     font-size: 0.85rem;
   }
   
+  .settingsCategory {
+    padding: 0.8rem;
+  }
+
+  .categoryTitle {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .settingsList {
+    gap: 0.8rem;
+  }
+
+  .settingItem {
+    padding: 0.6rem;
+    gap: 0.6rem;
+  }
+
+  .settingIcon {
+    font-size: 1.3rem;
+  }
+
+  .settingContent strong {
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .settingContent p {
+    font-size: 0.75rem;
+  }
+
+  .detailedGuide {
+    padding: 0.8rem;
+  }
+
   .stepList {
     font-size: 0.75rem;
     padding-left: 0.8rem;
