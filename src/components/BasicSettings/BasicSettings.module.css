@@ -255,6 +255,7 @@
   max-height: 0;
   overflow: hidden;
   transition: all 0.3s ease;
+  overflow-x: visible;
 }
 
 .accordionItem.active .accordionContent {
@@ -267,11 +268,16 @@
   color: #333;
   line-height: 1.8;
   margin-bottom: 1.5rem;
-  padding-left: 1.5rem;
+  padding-left: 2rem;
+  list-style-position: outside;
+  margin-left: 0;
+  overflow: visible;
 }
 
 .stepList li {
   margin-bottom: 0.8rem;
+  padding-left: 0;
+  margin-left: 0;
 }
 
 .stepList strong {
@@ -477,10 +483,12 @@
   
   .accordionContent {
     padding: 0 0.8rem;
+    overflow-x: visible;
   }
   
   .accordionItem.active .accordionContent {
     padding: 0.8rem;
+    overflow-x: visible;
   }
   
   .accordionTitle {
@@ -490,12 +498,15 @@
   .stepList {
     font-size: 0.8rem;
     line-height: 1.4;
-    padding-left: 1rem;
+    padding-left: 2rem;
+    list-style-position: outside;
+    margin-left: 0;
   }
   
   .stepList li {
     margin-bottom: 0.5rem;
-    padding-left: 0.3rem;
+    padding-left: 0;
+    margin-left: 0;
   }
   
   .screenshotNote {
@@ -593,7 +604,14 @@
   
   .stepList {
     font-size: 0.75rem;
-    padding-left: 0.8rem;
+    padding-left: 1.8rem;
+    list-style-position: outside;
+    margin-left: 0;
+  }
+  
+  .stepList li {
+    padding-left: 0;
+    margin-left: 0;
   }
   
   .screenshotNote {

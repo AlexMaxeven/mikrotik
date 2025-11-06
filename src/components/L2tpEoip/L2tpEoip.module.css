@@ -156,6 +156,7 @@
   background: rgba(255, 255, 255, 0.5);
   border-radius: 12px;
   padding: 1.5rem;
+  overflow: visible;
 }
 
 .contentTitle {
@@ -227,18 +228,20 @@
 .stepList {
   background: rgba(102, 126, 234, 0.05);
   border-radius: 10px;
-  padding: 1.2rem 1.5rem;
+  padding: 1.2rem 1.5rem 1.2rem 2.5rem;
   margin: 1rem 0;
   list-style: decimal;
+  list-style-position: outside;
   border-left: 4px solid #764ba2;
-  padding-left: 2rem;
+  overflow: visible;
 }
 
 .stepList li {
   color: #333;
   line-height: 1.8;
   margin-bottom: 0.8rem;
-  padding-left: 0.5rem;
+  padding-left: 0;
+  margin-left: 0;
 }
 
 .stepList li:last-child {
@@ -431,10 +434,15 @@
     font-size: 0.75rem;
   }
 
+  .block {
+    overflow: visible;
+  }
+
   .blockContentOpen {
     padding: 1rem;
     max-height: none;
     overflow: visible;
+    padding-left: 0.5rem;
   }
 
   .blockPlaceholder {
@@ -447,6 +455,7 @@
 
   .blockRealContent {
     padding: 1rem;
+    overflow: visible;
   }
 
   .contentTitle {
@@ -474,14 +483,18 @@
   }
 
   .stepList {
-    padding: 0.8rem 1rem;
+    padding: 0.8rem 1rem 0.8rem 2.2rem;
     font-size: 0.85rem;
+    list-style-position: outside;
+    margin-left: 0;
   }
 
   .stepList li {
     font-size: 0.85rem;
     line-height: 1.6;
     margin-bottom: 0.6rem;
+    padding-left: 0;
+    margin-left: 0;
   }
 
   .screenshotGallery {
@@ -550,13 +563,17 @@
     }
 
     .stepList {
-      padding: 0.7rem 0.9rem;
+      padding: 0.7rem 0.9rem 0.7rem 2rem;
       font-size: 0.8rem;
+      list-style-position: outside;
+      margin-left: 0;
     }
 
     .stepList li {
       font-size: 0.8rem;
       line-height: 1.5;
+      padding-left: 0;
+      margin-left: 0;
     }
 
     .galleryThumbnail {
